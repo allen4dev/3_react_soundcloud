@@ -1,0 +1,28 @@
+:root {
+  /* colors */
+  --orange: #f46c41;
+  --dark: #262629;
+  --dark-light: #36363b;
+  --white: #efeff4;
+  --gray: #a8a8af;
+  --light-gray: #efeff2;
+  --blue: #54afef;
+
+  /* font */
+  --font-small: 0.8em;
+  --font-normal: 1em;
+  --font-medium: 1.2em;
+  --font-big: 1.5em;
+
+  /* space */
+  --small: 0.5em;
+  --medium: 1em;
+  --big: 1.5em;
+  --container: 2em;
+
+  /* sizes */
+  --header-size: 4em;
+
+  /* z-index */
+  --z-header: 1000;
+}

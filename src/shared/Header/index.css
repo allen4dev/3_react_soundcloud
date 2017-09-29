@@ -1,0 +1,33 @@
+.Header {
+  background-color: var(--dark);
+  border: 4px solid green;
+  height: var(--header-size);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+}
+.Header-explore,
+.Header-login {
+  height: 100%;
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header-login {
+  background-color: var(--orange);
+}
+
+.Header-link {
+  color: white;
+  text-decoration: none;
+  font-size: var(--medium);
+  font-weight: bold;
+  text-transform: uppercase;
+}

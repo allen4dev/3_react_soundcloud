@@ -1,0 +1,12 @@
+.Searchbar {
+  flex-basis: 30%;
+}
+
+.Searchbar-input {
+  background-color: var(--dark-light);
+  color: white;
+  border: none;
+  font-size: var(--medium);
+  padding: var(--small);
+  width: 100%;
+}
