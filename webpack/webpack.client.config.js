@@ -34,6 +34,7 @@ const commonConfig = () => {
     parts.loadImages({ limit: 20000 }),
     parts.extractCSS(),
     parts.lintJS(),
+    parts.loadFonts(),
   ]);
 
   return common;

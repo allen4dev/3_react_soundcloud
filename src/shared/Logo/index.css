@@ -7,6 +7,8 @@
   flex-basis: 10%;
 }
 
-.Logo-image {
-  max-width: 100%;
+.Logo-font {
+  color: var(--white);
+  font-size: var(--font-logo);
+  padding: 0.5em;
 }

@@ -2,7 +2,7 @@
   /* colors */
   --orange: #f46c41;
   --dark: #262629;
-  --dark-light: #36363b;
+  --dark-light: #434347;
   --white: #efeff4;
   --gray: #a8a8af;
   --light-gray: #efeff2;
@@ -13,6 +13,7 @@
   --font-normal: 1em;
   --font-medium: 1.2em;
   --font-big: 1.5em;
+  --font-logo: 3em;
 
   /* space */
   --small: 0.5em;

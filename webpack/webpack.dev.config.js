@@ -54,6 +54,7 @@ const devConfig = () => {
     parts.loadImages({ limit: 20000 }),
     parts.injectCSS(),
     parts.lintJS(),
+    parts.loadFonts(),
   ]);
 
   return config;

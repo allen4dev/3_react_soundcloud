@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import './styles/App.css';
+import './styles/index.css';
 
 import Home from './pages/Home';
 import About from './pages/About';

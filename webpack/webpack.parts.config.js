@@ -41,6 +41,22 @@ exports.lintJS = () => ({
   },
 });
 
+exports.loadFonts = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+          name: './fonts/[name].[ext]',
+        },
+      },
+    ],
+  },
+});
+
 // Development
 exports.injectCSS = () => ({
   module: {
