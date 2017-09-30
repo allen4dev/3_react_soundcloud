@@ -17,7 +17,11 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => (
 
 PublicRoute.propTypes = {
   component: func.isRequired,
-  authed: bool.isRequired,
+  authed: bool,
+};
+
+PublicRoute.defaultProps = {
+  authed: false,
 };
 
 export default PublicRoute;

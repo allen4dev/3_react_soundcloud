@@ -20,7 +20,7 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
 
 PrivateRoute.propTypes = {
   component: func.isRequired,
-  authed: bool.isRequired,
+  authed: bool,
   location: shape({
     pathname: string,
     search: string,
@@ -29,6 +29,7 @@ PrivateRoute.propTypes = {
 
 PrivateRoute.defaultProps = {
   location: null,
+  authed: false,
 };
 
 export default PrivateRoute;
