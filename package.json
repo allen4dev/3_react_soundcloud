@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --silent",
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
     "dev": "webpack-dev-server",
     "dev:server": "NODE_ENV=devserver webpack --env development",
     "build": "NODE_ENV=production webpack -p --env production",
@@ -31,6 +32,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
+    "uuid": "^3.1.0",
     "soundcloud": "^3.2.2",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
