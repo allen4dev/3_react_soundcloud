@@ -40,4 +40,15 @@ describe('query reducer', () => {
       tracks: [...nextState.tracks, ...newTracks],
     });
   });
+
+  it('should handle SET_PLAYLISTS', () => {
+    const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
+
+    const nextState = reducer(INITIAL_STATE, actions.setPlaylists(playlistIds));
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      playlists: playlistIds,
+    });
+  });
 });

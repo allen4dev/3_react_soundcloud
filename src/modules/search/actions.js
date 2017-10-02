@@ -18,6 +18,13 @@ export function setTracks(trackIds) {
   };
 }
 
+export function setPlaylists(playlistIds) {
+  return {
+    type: actionTypes.SET_PLAYLISTS,
+    payload: playlistIds,
+  };
+}
+
 // Async Actions
 
 export function searchTracks(query) {
