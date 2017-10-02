@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 
+import Hero from './../../shared/Hero';
+
 import './index.css';
 
 type State = {
@@ -16,7 +18,7 @@ class Home extends React.Component<{}, State> {
   render() {
     return (
       <section className="Home">
-        <h1 className="Home-title">You are in Home</h1>
+        <Hero />
       </section>
     );
   }

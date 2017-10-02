@@ -1,3 +1,18 @@
 .container {
+  padding: 0 var(--big);
+}
+
+.btn {
   background-color: var(--orange);
+  border: none;
+  box-shadow: 0 0 0.5px rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  font-size: var(--font-normal);
+  padding: var(--small) var(--medium);
+}
+
+.btn-flat {
+  background-color: transparent;
+  border: 1px solid var(--white);
 }

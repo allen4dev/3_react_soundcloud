@@ -1,10 +1,10 @@
 :root {
   /* colors */
   --orange: #f46c41;
-  --dark: #262629;
-  --dark-light: #434347;
+  --dark: #111111;
+  --dark-light: #333333;
   --white: #efeff4;
-  --gray: #a8a8af;
+  --gray: #e5e5e5;
   --light-gray: #efeff2;
   --blue: #54afef;
 
@@ -22,7 +22,7 @@
   --container: 2em;
 
   /* sizes */
-  --header-size: 4em;
+  --header-size: 3em;
 
   /* z-index */
   --z-header: 1000;

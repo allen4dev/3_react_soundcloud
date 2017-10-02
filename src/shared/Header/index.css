@@ -1,5 +1,6 @@
 .Header {
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
+  background-color: transparent;
   height: var(--header-size);
   display: flex;
   justify-content: space-between;
@@ -31,4 +32,15 @@
   padding: var(--medium);
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.Header-buttons {
+  /* flex-basis: 30%; */
+  display: flex;
+  justify-content: flex-end;
+  margin-right: var(--medium);
+}
+
+.Header-buttons button:last-of-type {
+  margin-left: var(--big);
 }
