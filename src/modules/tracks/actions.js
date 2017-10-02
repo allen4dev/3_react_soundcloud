@@ -1,4 +1,5 @@
 // @flow
+import SC from './../../helpers/soundcloud';
 
 import * as actionTypes from './actionTypes';
 
@@ -20,4 +21,11 @@ export function setTracks(tracks: Tracks): SET_TRACKS {
 }
 
 // Async Actions
+export function fetchTrack(id) {
+  return async dispatch => {
+    const track = await SC.get(`/tracks/${id}`);
+    dispatch(setTrack(track));
 
+    return track;
+  };
+}
