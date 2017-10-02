@@ -32,7 +32,7 @@ export type Tracks = {
 };
 
 // State
-export type STATE = {
+type STATE = {
   entities: {},
 };
 
