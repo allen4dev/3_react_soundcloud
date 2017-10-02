@@ -11,6 +11,12 @@ function entitiesReducer(state = INITIAL_STATE.entities, action) {
         [action.payload.id]: action.payload,
       };
 
+    case actionTypes.SET_USERS:
+      return {
+        ...state,
+        ...action.payload,
+      };
+
     default:
       return state;
   }

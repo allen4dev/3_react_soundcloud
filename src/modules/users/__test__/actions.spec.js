@@ -25,4 +25,15 @@ describe('action creators', () => {
 
     expect(actions.setUsers(users)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a list of users', () => {
+    const users = fixtures.getUsers(2);
+
+    const expectedAction = {
+      type: actionTypes.SET_USERS,
+      payload: users,
+    };
+
+    expect(actions.setUsers(users)).toEqual(expectedAction);
+  });
 });

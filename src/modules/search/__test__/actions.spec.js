@@ -35,7 +35,7 @@ describe('Action Creators', () => {
     expect(actions.setPlaylists(playlistIds)).toEqual(expectedAction);
   });
 
-  it('should create an action to add users', () => {
+  it('should create an action to add user ids', () => {
     const usersIds = ['user1', 'user2', 'user3'];
 
     const expectedAction = {

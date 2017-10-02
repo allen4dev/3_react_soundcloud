@@ -3,6 +3,7 @@ import SC from './../../helpers/soundcloud';
 import * as actionTypes from './actionTypes';
 import tracks from './../tracks';
 import playlists from './../playlists';
+import users from './../users';
 
 import utils from './../../helpers/utils';
 
@@ -61,6 +62,17 @@ export function searchPlaylists(query) {
 
     dispatch(playlists.actions.setPlaylists(results));
     dispatch(setPlaylists(Object.keys(results)));
+
+    return results;
+  };
+}
+
+export function searchUsers(query) {
+  return async dispatch => {
+    const response = await SC.get('/users', { q: query });
+    const results = utils.arrayToObject(response);
+    dispatch(users.actions.setUsers(results));
+    dispatch(setUsers(Object.keys(results)));
 
     return results;
   };
