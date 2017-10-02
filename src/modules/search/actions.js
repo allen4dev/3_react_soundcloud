@@ -1,8 +1,10 @@
 import SC from './../../helpers/soundcloud';
 
 import * as actionTypes from './actionTypes';
-
 import tracks from './../tracks';
+import playlists from './../playlists';
+
+import utils from './../../helpers/utils';
 
 export function setQuery(query) {
   return {
@@ -51,3 +53,12 @@ export function searchTracks(query) {
     return results;
   };
 }
+
+// export function searchPlaylists(query) {
+//   return async dispatch => {
+//     const response = await SC.get('/playlists', { q: query });
+//     const results = utils.arrayToObject(response);
+
+//     dispatch(playlists.actions.)
+//   };
+// }

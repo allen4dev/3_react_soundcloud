@@ -5,13 +5,13 @@ import * as actionTypes from './actionTypes';
 // types
 // Refactor: Change the user object for the type User
 export type Track = {
-  id: string,
+  id: number,
   created_at: string,
   title: string,
   duration: number,
   sharing: string,
   uri: string,
-  user_id: string,
+  user_id: number,
   artwork_url: string,
   comment_count: number,
   description: string,

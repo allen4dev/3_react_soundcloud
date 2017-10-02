@@ -7,7 +7,7 @@ test('@@INIT', () => {
   expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
 });
 
-describe('query reducer', () => {
+describe('reducer', () => {
   it('should handle SET_QUERY', () => {
     const query = 'an awesome track, playlist or user';
 
