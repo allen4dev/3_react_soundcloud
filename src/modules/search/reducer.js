@@ -12,9 +12,19 @@ function queryReducer(state = INITIAL_STATE.query, action) {
   }
 }
 
+function tracksReducer(state = INITIAL_STATE.tracks, action) {
+  switch (action.type) {
+    case actionTypes.SET_TRACKS:
+      return [...state, ...action.payload];
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
   query: queryReducer,
-  tracks: () => [],
+  tracks: tracksReducer,
   playlists: () => [],
   users: () => [],
 });

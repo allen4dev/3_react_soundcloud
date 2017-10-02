@@ -12,4 +12,15 @@ describe('Action Creators', () => {
 
     expect(actions.setQuery(query)).toEqual(expectedAction);
   });
+
+  it('should create an action to add track ids', () => {
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_TRACKS,
+      payload: trackIds,
+    };
+
+    expect(actions.setTracks(trackIds)).toEqual(expectedAction);
+  });
 });

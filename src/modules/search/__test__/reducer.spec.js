@@ -22,4 +22,22 @@ describe('query reducer', () => {
       query: nextQuery,
     });
   });
+
+  it('should handle SET_TRACKS', () => {
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const nextState = reducer(INITIAL_STATE, actions.setTracks(trackIds));
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      tracks: trackIds,
+    });
+
+    const newTracks = ['track4', 'track5'];
+
+    expect(reducer(nextState, actions.setTracks(newTracks))).toEqual({
+      ...nextState,
+      tracks: [...nextState.tracks, ...newTracks],
+    });
+  });
 });
