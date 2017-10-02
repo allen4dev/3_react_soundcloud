@@ -54,11 +54,14 @@ export function searchTracks(query) {
   };
 }
 
-// export function searchPlaylists(query) {
-//   return async dispatch => {
-//     const response = await SC.get('/playlists', { q: query });
-//     const results = utils.arrayToObject(response);
+export function searchPlaylists(query) {
+  return async dispatch => {
+    const response = await SC.get('/playlists', { q: query });
+    const results = utils.arrayToObject(response);
 
-//     dispatch(playlists.actions.)
-//   };
-// }
+    dispatch(playlists.actions.setPlaylists(results));
+    dispatch(setPlaylists(Object.keys(results)));
+
+    return results;
+  };
+}

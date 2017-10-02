@@ -24,7 +24,7 @@ describe('Action Creators', () => {
     expect(actions.setTracks(trackIds)).toEqual(expectedAction);
   });
 
-  it('should create an actoion to add playlist ids', () => {
+  it('should create an action to add playlist ids', () => {
     const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
 
     const expectedAction = {
