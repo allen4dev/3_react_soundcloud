@@ -53,3 +53,41 @@ describe('entities reducer', () => {
     });
   });
 });
+
+describe('tracks reducer', () => {
+  it('should handle SET_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setPlaylistTracks(id, trackIds),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      tracks: {
+        [id]: trackIds,
+      },
+    });
+  });
+
+  it('should handle SET_NEXT_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setPlaylistTracks(id, trackIds),
+    );
+
+    const newTracks = ['track4', 'track5'];
+    const newState = reducer(nextState, actions.setNextTracks(id, newTracks));
+
+    expect(newState).toEqual({
+      ...nextState,
+      tracks: {
+        [id]: [...trackIds, ...newTracks],
+      },
+    });
+  });
+});

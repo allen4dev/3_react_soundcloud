@@ -40,13 +40,7 @@ export function setUsers(usersIds) {
 export function searchTracks(query) {
   return async dispatch => {
     const response = await SC.get('/tracks', { q: query });
-    const results = response.reduce(
-      (obj, track) => ({
-        ...obj,
-        [track.id]: track,
-      }),
-      {},
-    );
+    const results = utils.arrayToObject(response);
 
     dispatch(tracks.actions.setTracks(results));
     dispatch(setTracks(Object.keys(results)));

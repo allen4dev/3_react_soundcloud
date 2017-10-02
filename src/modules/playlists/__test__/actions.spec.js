@@ -25,4 +25,16 @@ describe('Action creators', () => {
 
     expect(actions.setPlaylists(playlists)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a list of tracks of a playlist', () => {
+    const trackIds = ['track1', 'track2'];
+    const id = 852;
+
+    const expectedAction = {
+      type: actionTypes.SET_PLAYLIST_TRACKS,
+      payload: { id, trackIds },
+    };
+
+    expect(actions.setPlaylistTracks(id, trackIds)).toEqual(expectedAction);
+  });
 });
