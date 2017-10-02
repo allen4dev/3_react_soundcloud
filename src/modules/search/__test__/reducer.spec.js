@@ -50,5 +50,34 @@ describe('query reducer', () => {
       ...INITIAL_STATE,
       playlists: playlistIds,
     });
+
+    const newPlaylists = ['playlist4', 'playlist5'];
+
+    const newState = reducer(nextState, actions.setPlaylists(newPlaylists));
+
+    expect(newState).toEqual({
+      ...nextState,
+      playlists: [...nextState.playlists, ...newPlaylists],
+    });
+  });
+
+  it('should handle SET_USERS', () => {
+    const usersIds = ['user1', 'user2', 'user3'];
+
+    const nextState = reducer(INITIAL_STATE, actions.setUsers(usersIds));
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      users: usersIds,
+    });
+
+    const newUsers = ['user4', 'user5'];
+
+    const newState = reducer(nextState, actions.setUsers(newUsers));
+
+    expect(newState).toEqual({
+      ...nextState,
+      users: [...nextState.users, ...newUsers],
+    });
   });
 });

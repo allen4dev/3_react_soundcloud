@@ -27,11 +27,19 @@ function playlistsReducer(state = INITIAL_STATE.playlists, action) {
   return state;
 }
 
+function usersReducer(state = INITIAL_STATE.users, action) {
+  if (action.type === actionTypes.SET_USERS) {
+    return [...state, ...action.payload];
+  }
+
+  return state;
+}
+
 const reducer = combineReducers({
   query: queryReducer,
   tracks: tracksReducer,
   playlists: playlistsReducer,
-  users: () => [],
+  users: usersReducer,
 });
 
 export default reducer;

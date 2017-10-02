@@ -30,8 +30,19 @@ describe('Action Creators', () => {
     const expectedAction = {
       type: actionTypes.SET_PLAYLISTS,
       payload: playlistIds,
-    }
+    };
 
-    expect(actions.setPlaylists(playlistIds)).toEqual(expectedAction)
-  })
+    expect(actions.setPlaylists(playlistIds)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add users', () => {
+    const usersIds = ['user1', 'user2', 'user3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_USERS,
+      payload: usersIds,
+    };
+
+    expect(actions.setUsers(usersIds)).toEqual(expectedAction);
+  });
 });

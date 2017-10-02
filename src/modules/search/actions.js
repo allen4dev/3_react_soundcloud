@@ -25,6 +25,13 @@ export function setPlaylists(playlistIds) {
   };
 }
 
+export function setUsers(usersIds) {
+  return {
+    type: actionTypes.SET_USERS,
+    payload: usersIds,
+  };
+}
+
 // Async Actions
 
 export function searchTracks(query) {
