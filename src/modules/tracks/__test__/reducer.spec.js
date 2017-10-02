@@ -5,11 +5,11 @@ import { INITIAL_STATE } from './../model';
 
 import fixtures from './fixtures';
 
-describe('entities reducer', () => {
-  it('@@INIT', () => {
-    expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
-  });
+test('@@INIT', () => {
+  expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
+});
 
+describe('entities reducer', () => {
   it('should handle SET_TRACKS', () => {
     const tracks = fixtures.getTracks(2);
 
@@ -37,8 +37,11 @@ describe('entities reducer', () => {
     const nextState = reducer(INITIAL_STATE, actions.setTrack(track));
 
     expect(nextState).toEqual({
-      ...INITIAL_STATE,
-      entities: { [track.id]: track },
+      ...nextState,
+      entities: {
+        ...nextState.entities,
+        [track.id]: track,
+      },
     });
   });
 });
