@@ -46,9 +46,18 @@ function commentsReducer(state = INITIAL_STATE.comments, action) {
   }
 }
 
+function currentTrackReducer(state = INITIAL_STATE.currentTrack, action) {
+  if (action.type === actionTypes.SET_CURRENT_TRACK) {
+    return action.payload;
+  }
+
+  return state;
+}
+
 const reducer = combineReducers({
   entities: entitiesReducer,
   comments: commentsReducer,
+  currentTrack: currentTrackReducer,
 });
 
 export default reducer;

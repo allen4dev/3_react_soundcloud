@@ -35,6 +35,13 @@ export function setNextTrackComments(id, commentIds) {
   };
 }
 
+export function setCurrentTrack(id) {
+  return {
+    type: actionTypes.SET_CURRENT_TRACK,
+    payload: id,
+  };
+}
+
 // Async Actions
 export function fetchTrack(id) {
   return async dispatch => {

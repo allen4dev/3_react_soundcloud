@@ -86,3 +86,21 @@ describe('comments reducer', () => {
     });
   });
 });
+
+describe('currentTrack reducer', () => {
+  const id = 123;
+  const nextState = reducer(INITIAL_STATE, actions.setCurrentTrack(id));
+
+  expect(nextState).toEqual({
+    ...INITIAL_STATE,
+    currentTrack: id,
+  });
+
+  const newTrackId = 456;
+  const newState = reducer(nextState, actions.setCurrentTrack(newTrackId));
+
+  expect(newState).toEqual({
+    ...nextState,
+    currentTrack: newTrackId,
+  });
+});

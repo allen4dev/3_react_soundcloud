@@ -35,6 +35,7 @@ export type Tracks = {
 type STATE = {
   entities: {},
   comments: {},
+  currentTrack: string,
 };
 
 // Actions
@@ -54,6 +55,7 @@ export type Action = SET_TRACK | SET_TRACKS;
 export const INITIAL_STATE: STATE = {
   entities: {},
   comments: {},
+  currentTrack: '',
 };
 
 export const some = 2;

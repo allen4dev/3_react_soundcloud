@@ -51,4 +51,15 @@ describe('Action Creators', () => {
       expectedAction,
     );
   });
+
+  it('should create an action to set the current played track', () => {
+    const id = 123;
+
+    const expectedAction = {
+      type: actionTypes.SET_CURRENT_TRACK,
+      payload: id,
+    };
+
+    expect(actions.setCurrentTrack(id)).toEqual(expectedAction);
+  });
 });
