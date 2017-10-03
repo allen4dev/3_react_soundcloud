@@ -26,13 +26,13 @@ function entitiesReducer(state = INITIAL_STATE.entities, action) {
 
 function commentsReducer(state = INITIAL_STATE.comments, action) {
   switch (action.type) {
-    case actionTypes.SET_COMMENTS:
+    case actionTypes.SET_TRACK_COMMENTS:
       return {
         ...state,
         [action.payload.id]: action.payload.commentIds,
       };
 
-    case actionTypes.SET_NEXT_COMMENTS:
+    case actionTypes.SET_NEXT_TRACK_COMMENTS:
       return {
         ...state,
         [action.payload.id]: [

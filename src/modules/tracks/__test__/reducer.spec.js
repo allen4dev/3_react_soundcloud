@@ -47,13 +47,13 @@ describe('entities reducer', () => {
 });
 
 describe('comments reducer', () => {
-  it('should handle SET_COMMENTS', () => {
+  it('should handle SET_TRACK_COMMENTS', () => {
     const id = 123;
     const commentIds = ['comment1', 'comment2', 'comment3'];
 
     const nextState = reducer(
       INITIAL_STATE,
-      actions.setComments(id, commentIds),
+      actions.setTrackComments(id, commentIds),
     );
 
     expect(nextState).toEqual({
@@ -69,13 +69,13 @@ describe('comments reducer', () => {
     const commentIds = ['comment1', 'comment2', 'comment3'];
     const nextState = reducer(
       INITIAL_STATE,
-      actions.setComments(id, commentIds),
+      actions.setTrackComments(id, commentIds),
     );
 
     const newComments = ['comment4', 'comment5'];
     const newState = reducer(
       nextState,
-      actions.setNextComments(id, newComments),
+      actions.setNextTrackComments(id, newComments),
     );
 
     expect(newState).toEqual({

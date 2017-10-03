@@ -36,4 +36,28 @@ describe('action creators', () => {
 
     expect(actions.setUsers(users)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a list of user tracks', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_USER_TRACKS,
+      payload: { id, trackIds },
+    };
+
+    expect(actions.setUserTracks(id, trackIds)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add a more tracks of user tracks', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_NEXT_USER_TRACKS,
+      payload: { id, trackIds },
+    };
+
+    expect(actions.setNextUserTracks(id, trackIds)).toEqual(expectedAction);
+  });
 });

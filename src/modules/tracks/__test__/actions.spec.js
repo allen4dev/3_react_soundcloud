@@ -31,11 +31,11 @@ describe('Action Creators', () => {
     const commentIds = ['comment1', 'comment2', 'comment3'];
 
     const expectedAction = {
-      type: actionTypes.SET_COMMENTS,
+      type: actionTypes.SET_TRACK_COMMENTS,
       payload: { id, commentIds },
     };
 
-    expect(actions.setComments(id, commentIds)).toEqual(expectedAction);
+    expect(actions.setTrackComments(id, commentIds)).toEqual(expectedAction);
   });
 
   it('should create an action to add a next list of comment ids for a track', () => {
@@ -43,10 +43,12 @@ describe('Action Creators', () => {
     const commentIds = ['comment1', 'comment2', 'comment3'];
 
     const expectedAction = {
-      type: actionTypes.SET_NEXT_COMMENTS,
+      type: actionTypes.SET_NEXT_TRACK_COMMENTS,
       payload: { id, commentIds },
     };
 
-    expect(actions.setNextComments(id, commentIds)).toEqual(expectedAction);
+    expect(actions.setNextTrackComments(id, commentIds)).toEqual(
+      expectedAction,
+    );
   });
 });

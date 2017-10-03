@@ -21,16 +21,16 @@ export function setTracks(tracks) {
   };
 }
 
-export function setComments(id, commentIds) {
+export function setTrackComments(id, commentIds) {
   return {
-    type: actionTypes.SET_COMMENTS,
+    type: actionTypes.SET_TRACK_COMMENTS,
     payload: { id, commentIds },
   };
 }
 
-export function setNextComments(id, commentIds) {
+export function setNextTrackComments(id, commentIds) {
   return {
-    type: actionTypes.SET_NEXT_COMMENTS,
+    type: actionTypes.SET_NEXT_TRACK_COMMENTS,
     payload: { id, commentIds },
   };
 }
@@ -51,7 +51,7 @@ export function fetchTrackComments(id) {
     const results = utils.arrayToObject(response);
 
     dispatch(comments.actions.setComments(results));
-    dispatch(setComments(id, Object.keys(results)));
+    dispatch(setTrackComments(id, Object.keys(results)));
 
     return results;
   };

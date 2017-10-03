@@ -39,4 +39,44 @@ describe('entities reducer', () => {
       entities: users,
     });
   });
+
+  it('should handle SET_USER_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setUserTracks(id, trackIds),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      tracks: {
+        [id]: trackIds,
+      },
+    });
+  });
+
+  it('should handle SET_NEXT_USER_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setUserTracks(id, trackIds),
+    );
+
+    const newTracks = ['track4', 'track5'];
+    const newState = reducer(
+      nextState,
+      actions.setNextUserTracks(id, newTracks),
+    );
+
+    expect(newState).toEqual({
+      ...nextState,
+      tracks: {
+        [id]: [...trackIds, ...newTracks],
+      },
+    });
+  });
 });
