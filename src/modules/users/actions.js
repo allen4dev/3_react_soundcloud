@@ -6,6 +6,7 @@ import utils from './../../helpers/utils';
 
 import tracks from './../tracks';
 import playlists from './../playlists';
+import followers from './../followers';
 
 // Action creators
 export function setUser(user) {
@@ -106,6 +107,17 @@ export function fetchUserPlaylists(id) {
 
     dispatch(playlists.actions.setPlaylists(results));
     dispatch(setUserPlaylists(id, Object.keys(results)));
+
+    return results;
+  };
+}
+
+export function fetchUserFollowers(id) {
+  return async dispatch => {
+    const response = await SC.get(`/users/${id}/followers`);
+    const results = utils.arrayToObject(response.collection);
+    dispatch(setUsers(results));
+    dispatch(followers.actions.setFollowers(id, Object.keys(results)));
 
     return results;
   };
