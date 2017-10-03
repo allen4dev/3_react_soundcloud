@@ -1,16 +1,12 @@
-// @flow
+import React, { Component } from 'react';
 
-import * as React from 'react';
+import TrackCardList from './../tracks/components/TrackCardList';
 
 import Hero from './../../shared/Hero';
 
 import './index.css';
 
-type State = {
-  dummie: string,
-};
-
-class Home extends React.Component<{}, State> {
+class Home extends Component {
   state = {
     dummie: '',
   };
@@ -19,6 +15,14 @@ class Home extends React.Component<{}, State> {
     return (
       <section className="Home">
         <Hero />
+        <div className="Home-tracks">
+          <p className="Home-text">
+            Escucha la musica del momento gratis en la comunidad SoundCloud
+          </p>
+          <TrackCardList items={new Array(12).fill({})} />
+        </div>
+
+        <button className="Home-button btn">Explore</button>
       </section>
     );
   }

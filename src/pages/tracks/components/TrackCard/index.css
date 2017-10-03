@@ -1,0 +1,13 @@
+.TrackCard {
+  color: var(--dark-light);
+  text-align: left;
+}
+
+.TrackCard-title {
+  font-size: var(--font-normal);
+  display: block;
+}
+
+.TrackCard-artist {
+  font-size: var(--font-small);
+}
