@@ -61,7 +61,7 @@ describe('action creators', () => {
     expect(actions.setNextUserTracks(id, trackIds)).toEqual(expectedAction);
   });
 
-  it('should create an action to add a list of favorited tracks from a user', () => {
+  it('should create an action to add a list of user favorited tracks', () => {
     const id = 123;
     const trackIds = ['track1', 'track2', 'track3'];
 
@@ -73,7 +73,7 @@ describe('action creators', () => {
     expect(actions.setFavoritedTracks(id, trackIds)).toEqual(expectedAction);
   });
 
-  it('should create an action to add a next list of favorited tracks from a user', () => {
+  it('should create an action to add a next list of user favorited tracks', () => {
     const id = 123;
     const trackIds = ['track1', 'track2', 'track3'];
 
@@ -83,6 +83,32 @@ describe('action creators', () => {
     };
 
     expect(actions.setNextFavoritedTracks(id, trackIds)).toEqual(
+      expectedAction,
+    );
+  });
+
+  it('should create an action to add a list of user playlists', () => {
+    const id = 123;
+    const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_USER_PLAYLISTS,
+      payload: { id, playlistIds },
+    };
+
+    expect(actions.setUserPlaylists(id, playlistIds)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add a next list of user playlists', () => {
+    const id = 123;
+    const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_NEXT_USER_PLAYLISTS,
+      payload: { id, playlistIds },
+    };
+
+    expect(actions.setNextUserPlaylists(id, playlistIds)).toEqual(
       expectedAction,
     );
   });

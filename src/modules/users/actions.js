@@ -5,6 +5,7 @@ import * as actionTypes from './actionTypes';
 import utils from './../../helpers/utils';
 
 import tracks from './../tracks';
+import playlists from './../playlists';
 
 // Action creators
 export function setUser(user) {
@@ -49,6 +50,20 @@ export function setNextFavoritedTracks(id, trackIds) {
   };
 }
 
+export function setUserPlaylists(id, playlistIds) {
+  return {
+    type: actionTypes.SET_USER_PLAYLISTS,
+    payload: { id, playlistIds },
+  };
+}
+
+export function setNextUserPlaylists(id, playlistIds) {
+  return {
+    type: actionTypes.SET_NEXT_USER_PLAYLISTS,
+    payload: { id, playlistIds },
+  };
+}
+
 // Async actions
 
 export function fetchUser(id) {
@@ -79,6 +94,18 @@ export function fetchFavoritedTracks(id) {
 
     dispatch(tracks.actions.setTracks(results));
     dispatch(setFavoritedTracks(id, Object.keys(results)));
+
+    return results;
+  };
+}
+
+export function fetchUserPlaylists(id) {
+  return async dispatch => {
+    const response = await SC.get(`/users/${id}/playlists`);
+    const results = utils.arrayToObject(response);
+
+    dispatch(playlists.actions.setPlaylists(results));
+    dispatch(setUserPlaylists(id, Object.keys(results)));
 
     return results;
   };

@@ -66,10 +66,33 @@ function favoritedReducer(state = INITIAL_STATE.favorited, action) {
   }
 }
 
+function playlistsReducer(state = INITIAL_STATE.playlists, action) {
+  switch (action.type) {
+    case actionTypes.SET_USER_PLAYLISTS:
+      return {
+        ...state,
+        [action.payload.id]: action.payload.playlistIds,
+      };
+
+    case actionTypes.SET_NEXT_USER_PLAYLISTS:
+      return {
+        ...state,
+        [action.payload.id]: [
+          ...state[action.payload.id],
+          ...action.payload.playlistIds,
+        ],
+      };
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
   entities: entitiesReducer,
   tracks: tracksReducer,
   favorited: favoritedReducer,
+  playlists: playlistsReducer,
 });
 
 export default reducer;

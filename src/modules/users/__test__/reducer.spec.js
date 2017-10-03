@@ -123,3 +123,43 @@ describe('favorited reducer', () => {
     });
   });
 });
+
+describe('playlists reducer', () => {
+  it('should handle SET_USER_PlAYLISTS', () => {
+    const id = 123;
+    const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setUserPlaylists(id, playlistIds),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      playlists: {
+        [id]: playlistIds,
+      },
+    });
+  });
+
+  it('should handle SET_NEXT_USER_PLAYLISTS', () => {
+    const id = 123;
+    const playlistIds = ['playlist1', 'playlist2', 'playlist3'];
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setUserPlaylists(id, playlistIds),
+    );
+
+    const newPlaylists = ['playlist4', 'playlist5'];
+    const newState = reducer(
+      nextState,
+      actions.setNextUserPlaylists(id, newPlaylists),
+    );
+
+    expect(newState).toEqual({
+      ...nextState,
+      playlists: {
+        [id]: [...playlistIds, ...newPlaylists],
+      },
+    });
+  });
+});
