@@ -39,7 +39,9 @@ describe('entities reducer', () => {
       entities: users,
     });
   });
+});
 
+describe('tracks reducer', () => {
   it('should handle SET_USER_TRACKS', () => {
     const id = 123;
     const trackIds = ['track1', 'track2', 'track3'];
@@ -75,6 +77,47 @@ describe('entities reducer', () => {
     expect(newState).toEqual({
       ...nextState,
       tracks: {
+        [id]: [...trackIds, ...newTracks],
+      },
+    });
+  });
+});
+
+describe('favorited reducer', () => {
+  it('should handle SET_FAVORITED_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setFavoritedTracks(id, trackIds),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      favorited: {
+        [id]: trackIds,
+      },
+    });
+  });
+
+  it('should handle SET_FAVORITED_TRACKS', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setFavoritedTracks(id, trackIds),
+    );
+
+    const newTracks = ['track4', 'track5'];
+    const newState = reducer(
+      nextState,
+      actions.setNextFavoritedTracks(id, newTracks),
+    );
+
+    expect(newState).toEqual({
+      ...nextState,
+      favorited: {
         [id]: [...trackIds, ...newTracks],
       },
     });

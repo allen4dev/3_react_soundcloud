@@ -44,9 +44,32 @@ function tracksReducer(state = INITIAL_STATE.tracks, action) {
   }
 }
 
+function favoritedReducer(state = INITIAL_STATE.favorited, action) {
+  switch (action.type) {
+    case actionTypes.SET_FAVORITED_TRACKS:
+      return {
+        ...state,
+        [action.payload.id]: action.payload.trackIds,
+      };
+
+    case actionTypes.SET_NEXT_FAVORITED_TRACKS:
+      return {
+        ...state,
+        [action.payload.id]: [
+          ...state[action.payload.id],
+          ...action.payload.trackIds,
+        ],
+      };
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
   entities: entitiesReducer,
   tracks: tracksReducer,
+  favorited: favoritedReducer,
 });
 
 export default reducer;

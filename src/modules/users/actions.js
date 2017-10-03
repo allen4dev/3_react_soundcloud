@@ -35,6 +35,20 @@ export function setNextUserTracks(id, trackIds) {
   };
 }
 
+export function setFavoritedTracks(id, trackIds) {
+  return {
+    type: actionTypes.SET_FAVORITED_TRACKS,
+    payload: { id, trackIds },
+  };
+}
+
+export function setNextFavoritedTracks(id, trackIds) {
+  return {
+    type: actionTypes.SET_NEXT_FAVORITED_TRACKS,
+    payload: { id, trackIds },
+  };
+}
+
 // Async actions
 
 export function fetchUser(id) {
@@ -53,6 +67,18 @@ export function fetchUserTracks(id) {
 
     dispatch(tracks.actions.setTracks(results));
     dispatch(setUserTracks(id, Object.keys(results)));
+
+    return results;
+  };
+}
+
+export function fetchFavoritedTracks(id) {
+  return async dispatch => {
+    const response = await SC.get(`/users/${id}/favorites`);
+    const results = utils.arrayToObject(response);
+
+    dispatch(tracks.actions.setTracks(results));
+    dispatch(setFavoritedTracks(id, Object.keys(results)));
 
     return results;
   };

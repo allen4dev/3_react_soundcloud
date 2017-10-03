@@ -60,4 +60,30 @@ describe('action creators', () => {
 
     expect(actions.setNextUserTracks(id, trackIds)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a list of favorited tracks from a user', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_FAVORITED_TRACKS,
+      payload: { id, trackIds },
+    };
+
+    expect(actions.setFavoritedTracks(id, trackIds)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add a next list of favorited tracks from a user', () => {
+    const id = 123;
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_NEXT_FAVORITED_TRACKS,
+      payload: { id, trackIds },
+    };
+
+    expect(actions.setNextFavoritedTracks(id, trackIds)).toEqual(
+      expectedAction,
+    );
+  });
 });
