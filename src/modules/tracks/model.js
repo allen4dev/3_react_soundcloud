@@ -34,6 +34,7 @@ export type Tracks = {
 // State
 type STATE = {
   entities: {},
+  comments: {},
 };
 
 // Actions
@@ -52,6 +53,7 @@ export type Action = SET_TRACK | SET_TRACKS;
 // feature stuff
 export const INITIAL_STATE: STATE = {
   entities: {},
+  comments: {},
 };
 
 export const some = 2;

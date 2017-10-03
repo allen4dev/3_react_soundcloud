@@ -24,8 +24,31 @@ function entitiesReducer(state = INITIAL_STATE.entities, action) {
   }
 }
 
+function commentsReducer(state = INITIAL_STATE.comments, action) {
+  switch (action.type) {
+    case actionTypes.SET_COMMENTS:
+      return {
+        ...state,
+        [action.payload.id]: action.payload.commentIds,
+      };
+
+    case actionTypes.SET_NEXT_COMMENTS:
+      return {
+        ...state,
+        [action.payload.id]: [
+          ...state[action.payload.id],
+          ...action.payload.commentIds,
+        ],
+      };
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
   entities: entitiesReducer,
+  comments: commentsReducer,
 });
 
 export default reducer;

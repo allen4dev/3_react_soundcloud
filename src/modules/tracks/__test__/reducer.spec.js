@@ -45,3 +45,44 @@ describe('entities reducer', () => {
     });
   });
 });
+
+describe('comments reducer', () => {
+  it('should handle SET_COMMENTS', () => {
+    const id = 123;
+    const commentIds = ['comment1', 'comment2', 'comment3'];
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setComments(id, commentIds),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      comments: {
+        [id]: commentIds,
+      },
+    });
+  });
+
+  it('should handle SET_NEXT_COMMENTS', () => {
+    const id = 123;
+    const commentIds = ['comment1', 'comment2', 'comment3'];
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setComments(id, commentIds),
+    );
+
+    const newComments = ['comment4', 'comment5'];
+    const newState = reducer(
+      nextState,
+      actions.setNextComments(id, newComments),
+    );
+
+    expect(newState).toEqual({
+      ...nextState,
+      comments: {
+        [id]: [...commentIds, ...newComments],
+      },
+    });
+  });
+});

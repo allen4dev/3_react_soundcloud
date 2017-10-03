@@ -25,4 +25,28 @@ describe('Action Creators', () => {
 
     expect(actions.setTrack(track)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a list of comment ids for a track', () => {
+    const id = 123;
+    const commentIds = ['comment1', 'comment2', 'comment3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_COMMENTS,
+      payload: { id, commentIds },
+    };
+
+    expect(actions.setComments(id, commentIds)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add a next list of comment ids for a track', () => {
+    const id = 123;
+    const commentIds = ['comment1', 'comment2', 'comment3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_NEXT_COMMENTS,
+      payload: { id, commentIds },
+    };
+
+    expect(actions.setNextComments(id, commentIds)).toEqual(expectedAction);
+  });
 });
