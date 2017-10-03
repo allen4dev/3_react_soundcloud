@@ -2,6 +2,7 @@
   background-image: url('./images/banner.jpg');
   background-size: cover;
   background-position: center;
+  color: white;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -11,4 +12,12 @@
 .Hero-content {
   width: 50%;
   text-align: center;
+}
+
+.Hero-title {
+  font-size: var(--font-large);
+}
+
+.Hero-description {
+  margin: var(--big) 0;
 }
