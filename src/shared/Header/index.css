@@ -1,6 +1,7 @@
 .Header {
   /* background-color: var(--dark); */
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: var(--dark-light);
   height: var(--header-size);
   display: flex;
   justify-content: space-between;

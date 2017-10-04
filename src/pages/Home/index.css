@@ -1,7 +1,7 @@
 .Home {
   /* height: calc(100vh - var(--header-size)); */
-  border: 4px solid blue;
-  /* margin-top: var(--header-size); */
+  /* border: 4px solid blue; */
+  margin-top: var(--header-size);
   text-align: center;
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import TrackCardList from './../tracks/components/TrackCardList';
+import TrackCardList from './../../modules/tracks/components/TrackCardList/';
 
 import Hero from './../../shared/Hero';
 
