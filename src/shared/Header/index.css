@@ -42,6 +42,10 @@
   margin-right: var(--medium);
 }
 
+.Header-buttons button:first-of-type {
+  color: var(--light-gray);
+}
+
 .Header-buttons button:last-of-type {
   margin-left: var(--big);
 }

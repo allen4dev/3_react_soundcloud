@@ -40,7 +40,17 @@ export function setUsers(usersIds) {
 export function searchTracks(query) {
   return async dispatch => {
     const response = await SC.get('/tracks', { q: query });
-    const results = utils.arrayToObject(response);
+    const cropTracks = response.map(track => {
+      const copy = track;
+
+      if (track.artwork_url) {
+        copy.artwork_url = track.artwork_url.replace('-large', '-crop');
+      }
+
+      return copy;
+    });
+
+    const results = utils.arrayToObject(cropTracks);
 
     dispatch(tracks.actions.setTracks(results));
     dispatch(setTracks(Object.keys(results)));

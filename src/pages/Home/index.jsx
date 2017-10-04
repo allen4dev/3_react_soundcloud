@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { func, arrayOf, object } from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import TrackCardList from './../../modules/tracks/components/TrackCardList/';
 
@@ -20,7 +21,7 @@ class Home extends Component {
 
     if (lastTracks.length === 0) {
       this.setState({ loading: true });
-      await fetchTracksByDate('last_week');
+      await fetchTracksByDate('fripSide');
     }
 
     this.setState({ loading: false });
@@ -35,15 +36,16 @@ class Home extends Component {
     return (
       <section className="Home">
         <Hero />
-
         <div className="Home-tracks">
           <p className="Home-text">
             Escucha la musica del momento gratis en la comunidad SoundCloud
           </p>
           <TrackCardList items={lastTracks} />
-        </div>
 
-        <button className="Home-button btn">Explora</button>
+          <Link className="Home-link btn" to="/results">
+            Explora
+          </Link>
+        </div>
 
         <div className="Home-explore">
           <div className="Home-apps">
@@ -55,6 +57,7 @@ class Home extends Component {
               </p>
             </div>
           </div>
+
           <div className="Home-info">
             <div className="Home-infoContainer">
               <h3 className="Home-infoTitle">LLamada a todos los creadores</h3>
@@ -63,7 +66,26 @@ class Home extends Component {
                 seguidores, compartir tus canciones y aumentar tu publico. ¿A
                 que esperas?
               </p>
-              <button className="btn btn-flat">Mas informacion</button>
+              <button className="Home-infoButton btn btn-flat">
+                Mas informacion
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="Home-join">
+          <div className="Home-joinContainer">
+            <h1 className="Home-joinTitle">Gracias por escuchar ahora unete</h1>
+            <p className="Home-joinText">
+              Guarda pistas, sigue a artistas y crea tus listas. Y todo, gratis
+            </p>
+          </div>
+          <div className="home-joinButtons">
+            <button className="Home-signupButton btn">Crea tu cuenta</button>
+            <div className="Home-login">
+              <span className="Home-loginMessage">Ya tienes una cuenta?</span>
+              <button className="Home-loginButton btn btn-flat">
+                Inicia sesion
+              </button>
             </div>
           </div>
         </div>

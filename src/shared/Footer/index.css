@@ -1,0 +1,23 @@
+.Footer {
+  padding: var(--small) var(--big);
+}
+
+.Footer-menu {
+  display: flex;
+  margin-bottom: var(--medium);
+}
+
+.Footer-item:not(:last-child) {
+  margin-right: var(--medium);
+}
+
+.Footer-link {
+  color: var(--gray);
+  display: block;
+  text-decoration: none;
+}
+
+.Language-text {
+  color: var(--blue);
+  margin-right: var(--small);
+}

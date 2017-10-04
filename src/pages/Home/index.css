@@ -10,17 +10,17 @@
   margin: var(--big) var(--big) var(--small);
 }
 
-.Home-button {
-  margin-bottom: var(--big);
+.Home-link {
+  text-decoration: none;
 }
 
 .Home-apps {
-  height: 70vh;
+  height: var(--banner-size);
   background-color: #f2f2f2;
   background-image: url('./images/phones.jpg');
-  background-size: 50%;
+  background-size: 45%;
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: 90% bottom;
 }
 
 .Home-appsDescription {
@@ -35,6 +35,10 @@
   align-items: center;
 }
 
+.Home-tracks {
+  margin-bottom: var(--big);
+}
+
 .Home-appsTitle {
   color: var(--dark-light);
   font-size: var(--font-large);
@@ -46,4 +50,66 @@
   color: gray;
   line-height: var(--big);
   font-size: var(--font-medium);
+}
+
+.Home-info {
+  background-image: url('./images/artist_home.jpg');
+  height: var(--banner-size);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 var(--big);
+}
+
+.Home-infoContainer {
+  width: 50%;
+  text-align: left;
+}
+
+.Home-infoTitle {
+  font-size: var(--font-large);
+  margin-bottom: var(--medium);
+  color: var(--light-gray);
+}
+
+.Home-infoText {
+  margin-bottom: var(--big);
+  color: var(--gray);
+  font-size: var(--font-big);
+  line-height: var(--big);
+}
+
+.Home-infoButton {
+  color: var(--light-gray);
+}
+
+.Home-join {
+  height: var(--banner-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home-joinContainer {
+  margin-bottom: var(--big);
+}
+
+.Home-joinTitle {
+  color: var(--dark);
+  font-size: var(--font-large);
+  margin-bottom: var(--small);
+}
+
+.Home-joinText {
+  color: var(--dark-light);
+  font-size: var(--font-big);
+}
+
+.Home-signupButton {
+  margin-bottom: var(--big);
+}
+
+.Home-loginMessage {
+  margin-right: var(--big);
 }

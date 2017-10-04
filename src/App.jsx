@@ -18,6 +18,7 @@ import Error404 from './pages/Error404';
 // import PublicRoute from './PublicRoute';
 
 import Header from './shared/Header';
+import Footer from './shared/Footer';
 
 import store from './store';
 
@@ -37,7 +38,7 @@ function App() {
           <Route path="/track/:id" component={TrackDetail} />
           <Route component={Error404} />
         </Switch>
-        <footer className="App-footer">Footer</footer>
+        <Footer />
       </div>
     </Provider>
   );

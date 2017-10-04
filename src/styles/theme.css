@@ -24,6 +24,7 @@
 
   /* sizes */
   --header-size: 4em;
+  --banner-size: 20em;
 
   /* z-index */
   --z-header: 1000;
