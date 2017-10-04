@@ -13,3 +13,37 @@
 .Home-button {
   margin-bottom: var(--big);
 }
+
+.Home-apps {
+  height: 70vh;
+  background-color: #f2f2f2;
+  background-image: url('./images/phones.jpg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.Home-appsDescription {
+  height: 100%;
+  padding: var(--big) var(--container);
+  text-align: left;
+  width: 30%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home-appsTitle {
+  color: var(--dark-light);
+  font-size: var(--font-large);
+  font-weight: normal;
+  margin-bottom: var(--medium);
+}
+
+.Home-appsText {
+  color: gray;
+  line-height: var(--big);
+  font-size: var(--font-medium);
+}
