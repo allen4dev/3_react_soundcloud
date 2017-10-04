@@ -36,6 +36,7 @@ type STATE = {
   entities: {},
   comments: {},
   currentTrack: string,
+  lastTracks: Array<string>,
 };
 
 // Actions
@@ -56,6 +57,7 @@ export const INITIAL_STATE: STATE = {
   entities: {},
   comments: {},
   currentTrack: '',
+  lastTracks: [],
 };
 
 export const some = 2;

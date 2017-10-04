@@ -54,10 +54,19 @@ function currentTrackReducer(state = INITIAL_STATE.currentTrack, action) {
   return state;
 }
 
+function lastTracksReducer(state = INITIAL_STATE.lastTracks, action) {
+  if (action.type === actionTypes.SET_LAST_TRACKS) {
+    return action.payload;
+  }
+
+  return state;
+}
+
 const reducer = combineReducers({
   entities: entitiesReducer,
   comments: commentsReducer,
   currentTrack: currentTrackReducer,
+  lastTracks: lastTracksReducer,
 });
 
 export default reducer;

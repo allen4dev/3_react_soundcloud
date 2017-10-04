@@ -6,7 +6,9 @@ import TrackCard from './../TrackCard';
 import './index.css';
 
 const TrackCardList = ({ items }) => (
-  <div className="TrackCardList">{items.map(() => <TrackCard />)}</div>
+  <div className="TrackCardList">
+    {items.map(track => <TrackCard key={track.id} {...track} />)}
+  </div>
 );
 
 TrackCardList.propTypes = {

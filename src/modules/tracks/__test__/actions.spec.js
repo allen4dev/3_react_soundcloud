@@ -48,7 +48,7 @@ describe('Action Creators', () => {
     };
 
     expect(actions.setNextTrackComments(id, commentIds)).toEqual(
-      expectedAction,
+      expectedAction
     );
   });
 
@@ -61,5 +61,16 @@ describe('Action Creators', () => {
     };
 
     expect(actions.setCurrentTrack(id)).toEqual(expectedAction);
+  });
+
+  it('should create an action to add the last tracks', () => {
+    const trackIds = ['track1', 'track2', 'track3'];
+
+    const expectedAction = {
+      type: actionTypes.SET_LAST_TRACKS,
+      payload: trackIds,
+    };
+
+    expect(actions.setLastTracks(trackIds)).toEqual(expectedAction);
   });
 });

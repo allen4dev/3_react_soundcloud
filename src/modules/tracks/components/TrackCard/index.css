@@ -3,11 +3,19 @@
   text-align: left;
 }
 
-.TrackCard-title {
-  font-size: var(--font-normal);
-  display: block;
+.TrackCard-description {
+  padding: var(--small) 0;
 }
 
-.TrackCard-artist {
+.TrackCard-title {
+  color: var(--dark);
+  font-size: var(--font-normal);
+  display: block;
+  text-decoration: none;
+}
+
+.TrackCard-user {
   font-size: var(--font-small);
+  color: var(--gray);
+  text-decoration: none;
 }

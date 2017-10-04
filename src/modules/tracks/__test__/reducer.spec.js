@@ -53,7 +53,7 @@ describe('comments reducer', () => {
 
     const nextState = reducer(
       INITIAL_STATE,
-      actions.setTrackComments(id, commentIds),
+      actions.setTrackComments(id, commentIds)
     );
 
     expect(nextState).toEqual({
@@ -69,13 +69,13 @@ describe('comments reducer', () => {
     const commentIds = ['comment1', 'comment2', 'comment3'];
     const nextState = reducer(
       INITIAL_STATE,
-      actions.setTrackComments(id, commentIds),
+      actions.setTrackComments(id, commentIds)
     );
 
     const newComments = ['comment4', 'comment5'];
     const newState = reducer(
       nextState,
-      actions.setNextTrackComments(id, newComments),
+      actions.setNextTrackComments(id, newComments)
     );
 
     expect(newState).toEqual({
@@ -102,5 +102,25 @@ describe('currentTrack reducer', () => {
   expect(newState).toEqual({
     ...nextState,
     currentTrack: newTrackId,
+  });
+});
+
+describe('lastTracks reducer', () => {
+  it('should handle SET_LAST_TRACKS', () => {
+    const trackIds = ['track1', 'track2', 'track3'];
+    const nextState = reducer(INITIAL_STATE, actions.setLastTracks(trackIds));
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      lastTracks: trackIds,
+    });
+
+    const newTracks = ['track4', 'track5'];
+    const newState = reducer(nextState, actions.setLastTracks(newTracks));
+
+    expect(newState).toEqual({
+      ...nextState,
+      lastTracks: newTracks,
+    });
   });
 });

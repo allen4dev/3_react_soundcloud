@@ -42,6 +42,13 @@ export function setCurrentTrack(id) {
   };
 }
 
+export function setLastTracks(trackIds) {
+  return {
+    type: actionTypes.SET_LAST_TRACKS,
+    payload: trackIds,
+  };
+}
+
 // Async Actions
 export function fetchTrack(id) {
   return async dispatch => {
@@ -59,6 +66,29 @@ export function fetchTrackComments(id) {
 
     dispatch(comments.actions.setComments(results));
     dispatch(setTrackComments(id, Object.keys(results)));
+
+    return results;
+  };
+}
+
+export function fetchTracksByDate(created_at = 'last_hour', limit = 12) {
+  return async dispatch => {
+    const response = await SC.get('/tracks', { created_at, limit });
+
+    const cropTracks = response.map(track => {
+      const copy = track;
+
+      if (track.artwork_url) {
+        copy.artwork_url = track.artwork_url.replace('-large', '-crop');
+      }
+
+      return copy;
+    });
+
+    const results = utils.arrayToObject(cropTracks);
+
+    dispatch(setTracks(results));
+    dispatch(setLastTracks(Object.keys(results)));
 
     return results;
   };
