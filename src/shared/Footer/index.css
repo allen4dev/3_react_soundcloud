@@ -1,5 +1,6 @@
 .Footer {
   padding: var(--small) var(--big);
+  height: var(--footer-size);
 }
 
 .Footer-menu {

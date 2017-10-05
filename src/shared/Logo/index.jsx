@@ -1,13 +1,11 @@
-// @flow
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './index.css';
 
-const Logo = () => (
-  <div className="Logo">
+const Logo = () =>
+  <Link to="/" className="Logo">
     <i className="Logo-font icon-soundcloud" />
-  </div>
-);
+  </Link>;
 
 export default Logo;

@@ -1,0 +1,23 @@
+.FilterBox {
+  padding: var(--small);
+  margin-top: var(--big);
+}
+
+.FilterBox-title {
+  color: var(--gray);
+  font-weight: normal;
+  margin-bottom: var(--small);
+}
+
+.FilterBox-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.FilterBox-tag {
+  margin: var(--small) 0;
+}
+
+.FilterBox-tag:not(:last-child) {
+  margin-right: var(--small);
+}

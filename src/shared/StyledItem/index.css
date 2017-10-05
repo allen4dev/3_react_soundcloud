@@ -1,0 +1,16 @@
+.StyledItem {
+  color: var(--dark-light);
+  display: block;
+  padding: var(--small);
+  text-decoration: none;
+  position: relative;
+}
+
+.StyledItem-icon {
+  margin-right: var(--small);
+}
+
+.StyledItem-selected {
+  background-color: var(--orange);
+  color: var(--light-gray);
+}

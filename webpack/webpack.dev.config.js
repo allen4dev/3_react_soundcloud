@@ -28,7 +28,7 @@ const devConfig = () => {
       output: {
         filename: 'bundle.js',
         path: PATHS.output,
-        // publicPath: '/'
+        publicPath: '/',
       },
       devServer: {
         hot: true,

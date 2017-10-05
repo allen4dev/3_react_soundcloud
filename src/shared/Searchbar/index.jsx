@@ -1,20 +1,24 @@
-// @flow
-import * as React from 'react';
+import React from 'react';
+import { string, func } from 'prop-types';
 
 import './index.css';
 
-type Props = {
-  placeholder: string,
-};
-
-const Searchbar = (props: Props) => (
-  <form className="Searchbar">
+const Searchbar = ({ placeholder, value, handleSubmit, handleChange }) =>
+  <form onSubmit={handleSubmit} className="Searchbar">
     <input
       className="Searchbar-input"
       type="text"
-      placeholder={props.placeholder}
+      placeholder={placeholder}
+      value={value}
+      onChange={handleChange}
     />
-  </form>
-);
+  </form>;
+
+Searchbar.propTypes = {
+  placeholder: string.isRequired,
+  value: string.isRequired,
+  handleChange: func.isRequired,
+  handleSubmit: func.isRequired,
+};
 
 export default Searchbar;

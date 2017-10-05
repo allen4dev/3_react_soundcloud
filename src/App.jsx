@@ -29,7 +29,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/results" component={Results} />
+          <Route path="/results/:resource" component={Results} />
           <Route path="/signup" component={Signup} />
           <Route path="/me" component={Profile} />
           <Route path="/collections" component={Collection} />

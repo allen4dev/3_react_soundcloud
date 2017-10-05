@@ -1,5 +1,8 @@
 .container {
   padding: 0 var(--big);
+  max-width: 1024px;
+  margin: var(--header-size) auto 0;
+  height: calc(100vh - 9em);
 }
 
 .btn {
@@ -24,4 +27,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   /* text-align: center; */
+}
+
+.tag {
+  background-color: var(--gray);
+  border-radius: 10px;
+  color: white;
+  font-size: var(--font-small);
+  padding: .2em var(--small);
 }

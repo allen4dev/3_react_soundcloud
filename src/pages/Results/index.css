@@ -1,1 +1,20 @@
+.Results {
+  /*margin-top: var(--header-size);*/
+}
 
+.Results-title {
+  padding: var(--big) 0;
+}
+
+.Results-content {
+  display: flex;
+}
+
+.Results-aside {
+  flex-basis: 20%;
+}
+
+.Results-list {
+  flex: 1;
+  padding: 0 var(--big);
+}

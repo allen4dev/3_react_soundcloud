@@ -8,6 +8,12 @@ function arrayToObject(arr) {
   );
 }
 
+function cleanSearch(query) {
+  const cleaned = query.replace('?q=', '');
+  return cleaned;
+}
+
 export default {
   arrayToObject,
+  cleanSearch,
 };
