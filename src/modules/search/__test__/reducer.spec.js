@@ -46,7 +46,7 @@ describe('reducer', () => {
 
     expect(reducer(nextState, actions.setTracks(newTracks))).toEqual({
       ...nextState,
-      tracks: [...nextState.tracks, ...newTracks],
+      tracks: newTracks,
     });
   });
 
@@ -66,7 +66,7 @@ describe('reducer', () => {
 
     expect(newState).toEqual({
       ...nextState,
-      playlists: [...nextState.playlists, ...newPlaylists],
+      playlists: newPlaylists,
     });
   });
 
@@ -86,7 +86,7 @@ describe('reducer', () => {
 
     expect(newState).toEqual({
       ...nextState,
-      users: [...nextState.users, ...newUsers],
+      users: newUsers,
     });
   });
 });

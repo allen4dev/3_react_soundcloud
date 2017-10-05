@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { string, number } from 'prop-types';
+import { string, number, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Image from './../../../../shared/Image';
@@ -69,10 +69,10 @@ class TrackRow extends Component {
 
 TrackRow.propTypes = {
   id: number.isRequired,
-  user: {
+  user: shape({
     id: number.isRequired,
     username: string.isRequired,
-  }.isRequired,
+  }).isRequired,
   title: string.isRequired,
   artwork_url: string.isRequired,
   playback_count: number,

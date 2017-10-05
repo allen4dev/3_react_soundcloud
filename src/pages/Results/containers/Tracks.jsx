@@ -1,34 +1,19 @@
 import React, { Component } from 'react';
-import { shape, arrayOf, object, string, func } from 'prop-types';
+import { string, shape, arrayOf, object } from 'prop-types';
 import { connect } from 'react-redux';
 
 import TrackRowList from './../../../modules/tracks/components/TrackRowList';
 
 import search from './../../../modules/search';
 
-import utils from './../../../helpers/utils';
+// import utils from './../../../helpers/utils';
 
 class Tracks extends Component {
   state = {
-    loading: true,
+    // loading: true,
   };
-
   componentDidMount() {
-    const { items, query, searchTracks, location } = this.props;
-    console.log('TRACKS LOCATION CDM', location);
-
-    if (
-      items.length === 0 ||
-      query.prev !== utils.cleanSearch(location.search)
-    ) {
-      console.log('FETCHING NEW RESULTS');
-
-      this.setState({ loading: true }, async () => {
-        await searchTracks(query.current);
-      });
-    }
-
-    this.setState({ loading: false });
+    console.log('TRACKS LOCATION CDM', this.props.location);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,12 +22,7 @@ class Tracks extends Component {
       console.log('should make a request?');
     }
   }
-
   render() {
-    if (this.state.loading) {
-      return <h1>List loading...</h1>;
-    }
-
     const { items } = this.props;
     /* <TrackRowList items={new Array(12).fill({})} /> */
 
@@ -55,9 +35,7 @@ class Tracks extends Component {
 }
 
 Tracks.propTypes = {
-  query: string.isRequired,
   items: arrayOf(object),
-  searchTracks: func.isRequired,
 
   location: shape({
     pathname: string,

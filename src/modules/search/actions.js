@@ -37,9 +37,9 @@ export function setUsers(usersIds) {
 
 // Async Actions
 
-export function searchTracks(query) {
+export function searchTracks(query, limit = 10) {
   return async dispatch => {
-    const response = await SC.get('/tracks', { q: query });
+    const response = await SC.get('/tracks', { q: query, limit });
     const cropTracks = response.map(track => {
       const copy = track;
 
@@ -60,9 +60,9 @@ export function searchTracks(query) {
   };
 }
 
-export function searchPlaylists(query) {
+export function searchPlaylists(query, limit = 10) {
   return async dispatch => {
-    const response = await SC.get('/playlists', { q: query });
+    const response = await SC.get('/playlists', { q: query, limit });
     const results = utils.arrayToObject(response);
 
     dispatch(playlists.actions.setPlaylists(results));
@@ -72,9 +72,9 @@ export function searchPlaylists(query) {
   };
 }
 
-export function searchUsers(query) {
+export function searchUsers(query, limit = 10) {
   return async dispatch => {
-    const response = await SC.get('/users', { q: query });
+    const response = await SC.get('/users', { q: query, limit });
     const results = utils.arrayToObject(response);
     dispatch(users.actions.setUsers(results));
     dispatch(setUsers(Object.keys(results)));

@@ -25,7 +25,7 @@ function tracksReducer(state = INITIAL_STATE.tracks, action) {
 
 function playlistsReducer(state = INITIAL_STATE.playlists, action) {
   if (action.type === actionTypes.SET_PLAYLISTS) {
-    return [...state, ...action.payload];
+    return action.payload;
   }
 
   return state;
@@ -33,7 +33,7 @@ function playlistsReducer(state = INITIAL_STATE.playlists, action) {
 
 function usersReducer(state = INITIAL_STATE.users, action) {
   if (action.type === actionTypes.SET_USERS) {
-    return [...state, ...action.payload];
+    return action.payload;
   }
 
   return state;
