@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import TrackRowList from './../../../modules/tracks/components/TrackRowList';
 
-import search from './../../../modules/search';
-
 // import utils from './../../../helpers/utils';
 
 class Tracks extends Component {
@@ -56,4 +54,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, search.actions)(Tracks);
+export default connect(mapStateToProps)(Tracks);

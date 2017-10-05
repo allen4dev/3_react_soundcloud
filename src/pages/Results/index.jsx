@@ -24,14 +24,15 @@ class Results extends Component {
 
   componentDidMount() {
     // console.log('LOCATION CDM', this.props.location);
+    console.log('STORE QUERY', this.props.query);
 
     if (
-      this.props.query.current !== utils.cleanSearch(this.props.location.search)
+      this.props.query.prev !== utils.cleanSearch(this.props.location.search)
     ) {
       this.setState({ loading: false });
-      // this.setState({ loading: true }, async () => {
-      //   await this.fetchData(utils.cleanSearch(this.props.location.search));
-      // });
+      this.setState({ loading: true }, async () => {
+        await this.fetchData(utils.cleanSearch(this.props.location.search));
+      });
     }
 
     this.setState({ loading: false });
@@ -40,9 +41,9 @@ class Results extends Component {
   async componentWillReceiveProps(nextProps) {
     // console.log('LOCATION CWRP', nextProps.location);
     if (nextProps.location.search !== this.props.location.search) {
-      // console.log('should make a request?');
-      // this.setState({ loading: true });
-      // await this.fetchData(nextProps.location.search);
+      console.log('should make a request?');
+      this.setState({ loading: true });
+      await this.fetchData(nextProps.location.search);
       this.setState({ loading: false });
     }
   }
@@ -95,7 +96,7 @@ class Results extends Component {
 }
 
 Results.propTypes = {
-  query: string.isRequired,
+  query: shape({ current: string, prev: string }).isRequired,
 
   location: shape({
     pathname: string,

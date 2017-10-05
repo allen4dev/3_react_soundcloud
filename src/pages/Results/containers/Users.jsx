@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { shape, string } from 'prop-types';
+import { shape, string, arrayOf, object } from 'prop-types';
+import { connect } from 'react-redux';
 
 import UserList from './../../../modules/users/components/UserList';
 
@@ -22,17 +23,31 @@ class Users extends Component {
   render() {
     return (
       <section className="Users">
-        <UserList items={new Array(12).fill({})} />
+        <UserList items={this.props.items} />
       </section>
     );
   }
 }
 
 Users.propTypes = {
+  items: arrayOf(object),
+
   location: shape({
     pathname: string,
     search: string,
   }).isRequired,
 };
 
-export default Users;
+Users.defaultProps = {
+  items: [],
+};
+
+function mapStateToProps(state) {
+  const ids = state.search.users;
+
+  return {
+    items: ids.map(id => state.users.entities[id]),
+  };
+}
+
+export default connect(mapStateToProps)(Users);

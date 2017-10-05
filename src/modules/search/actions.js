@@ -40,17 +40,9 @@ export function setUsers(usersIds) {
 export function searchTracks(query, limit = 10) {
   return async dispatch => {
     const response = await SC.get('/tracks', { q: query, limit });
-    const cropTracks = response.map(track => {
-      const copy = track;
+    const filtered = response.map(utils.filterTrack);
 
-      if (track.artwork_url) {
-        copy.artwork_url = track.artwork_url.replace('-large', '-crop');
-      }
-
-      return copy;
-    });
-
-    const results = utils.arrayToObject(cropTracks);
+    const results = utils.arrayToObject(filtered);
     const keys = Object.keys(results);
 
     dispatch(tracks.actions.setTracks(results));
@@ -63,7 +55,15 @@ export function searchTracks(query, limit = 10) {
 export function searchPlaylists(query, limit = 10) {
   return async dispatch => {
     const response = await SC.get('/playlists', { q: query, limit });
-    const results = utils.arrayToObject(response);
+
+    const completePlaylists = response.map(playlist =>
+      SC.get(`/playlists/${playlist.id}`),
+    );
+
+    const resolved = await Promise.all(completePlaylists);
+    const filtered = resolved.map(utils.filterPlaylist);
+
+    const results = utils.arrayToObject(filtered);
 
     dispatch(playlists.actions.setPlaylists(results));
     dispatch(setPlaylists(Object.keys(results)));
@@ -75,7 +75,9 @@ export function searchPlaylists(query, limit = 10) {
 export function searchUsers(query, limit = 10) {
   return async dispatch => {
     const response = await SC.get('/users', { q: query, limit });
-    const results = utils.arrayToObject(response);
+    const filtered = response.map(utils.filterUser);
+
+    const results = utils.arrayToObject(filtered);
     dispatch(users.actions.setUsers(results));
     dispatch(setUsers(Object.keys(results)));
 

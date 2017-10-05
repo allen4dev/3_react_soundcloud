@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { shape, string } from 'prop-types';
+import { connect } from 'react-redux';
+import { shape, string, arrayOf, object } from 'prop-types';
 
 import SetList from './../../../modules/playlists/components/SetList';
 
@@ -22,17 +23,30 @@ class Playlists extends Component {
   render() {
     return (
       <section className="Playlists">
-        <SetList items={new Array(12).fill({})} />
+        <SetList items={this.props.items} />
       </section>
     );
   }
 }
 
 Playlists.propTypes = {
+  items: arrayOf(object),
+
   location: shape({
     pathname: string,
     search: string,
   }).isRequired,
 };
 
-export default Playlists;
+Playlists.defaultProps = {
+  items: [],
+};
+
+function mapStateToProps(state) {
+  const ids = state.search.playlists;
+  return {
+    items: ids.map(id => state.playlists.entities[id]),
+  };
+}
+
+export default connect(mapStateToProps)(Playlists);
