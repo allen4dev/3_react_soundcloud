@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { shape, func } from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Logo from './../Logo';
 import Searchbar from './../Searchbar';
+
+import search from './../../modules/search';
 
 import './index.css';
 
@@ -21,19 +24,21 @@ class Header extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    const query = this.state.search;
+    //
     this.props.history.push({
       pathname: '/results/all',
-      search: `q=${this.state.search}`,
+      search: `q=${query}`,
     });
 
+    this.props.setQuery(query);
     this.setState({ search: '' });
   }
 
   handleChange(e) {
-    const search = e.target.value;
+    const query = e.target.value;
 
-    this.setState({ search });
+    this.setState({ search: query });
   }
 
   render() {
@@ -56,9 +61,17 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  setQuery: func.isRequired,
+
   history: shape({
     push: func,
   }).isRequired,
 };
 
-export default withRouter(Header);
+function mapStateToProps(state) {
+  return {
+    query: state.search.query,
+  };
+}
+
+export default withRouter(connect(mapStateToProps, search.actions)(Header));

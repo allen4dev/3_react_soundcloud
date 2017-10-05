@@ -51,11 +51,12 @@ export function searchTracks(query) {
     });
 
     const results = utils.arrayToObject(cropTracks);
+    const keys = Object.keys(results);
 
     dispatch(tracks.actions.setTracks(results));
-    dispatch(setTracks(Object.keys(results)));
+    dispatch(setTracks(keys));
 
-    return results;
+    return Object.values(results);
   };
 }
 

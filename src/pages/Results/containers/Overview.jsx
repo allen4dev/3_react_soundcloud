@@ -25,7 +25,9 @@ class Overview extends Component {
   render() {
     return (
       <section className="Overview">
-        <h1 className="Overview-title">This is the overview page</h1>
+        <p className="Overview-message">
+          Se encontraron 500 pistas, 196 listas y 18 personas
+        </p>
       </section>
     );
   }

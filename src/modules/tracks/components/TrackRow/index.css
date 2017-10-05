@@ -1,0 +1,75 @@
+.TrackRow {
+  display: flex;
+}
+
+.TrackRow-image {
+  flex-basis: 15%;
+  margin-right: var(--big);
+}
+
+.TrackRow-player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.TrackRow-heading {
+  display: flex;
+  align-items: center;
+}
+
+.TrackRow-button {
+  margin-right: var(--medium);
+}
+
+.TrackRow-play {
+  padding: var(--small);
+  border-radius: 50%;
+}
+
+.TrackRow-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.TrackRow-link {
+  text-decoration: none;
+}
+
+.TrackRow-user {
+  color: var(--gray);
+  font-size: var(--font-small);
+  margin-bottom: 0.2em;
+}
+
+.TrackRow-title {
+  color: var(--dark-light);
+  font-size: var(--font-normal);
+}
+
+/* Progress */
+/* Progress */
+
+.TrackRow-count {
+  font-size: var(--font-small);
+}
+
+.TrackRow-count:first-of-type {
+  margin-right: var(--medium);
+}
+
+.TrackRow-icon {
+  margin-right: var(--small);
+}
+
+.TrackRow-progress {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.TrackRow-progressFilled {
+  background: var(--orange);
+}

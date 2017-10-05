@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
-import { shape, string } from 'prop-types';
+import { shape, arrayOf, object, string, func } from 'prop-types';
+import { connect } from 'react-redux';
+
+import TrackRowList from './../../../modules/tracks/components/TrackRowList';
+
+import search from './../../../modules/search';
+
+import utils from './../../../helpers/utils';
 
 class Tracks extends Component {
   state = {
-    dummie: 'yey',
+    loading: true,
   };
 
   componentDidMount() {
-    console.log('TRACKS LOCATION CDM', this.props.location);
+    const { items, query, searchTracks, location } = this.props;
+    console.log('TRACKS LOCATION CDM', location);
+
+    if (items.length === 0 || query !== utils.cleanSearch(location.search)) {
+      console.log('FETCHING NEW RESULTS');
+      console.log(
+        `QUERY STORE: ${query}, SEARCH: ${utils.cleanSearch(location.search)}`
+      );
+      this.setState({ loading: true }, async () => {
+        await searchTracks(query);
+      });
+    }
+
+    this.setState({ loading: false });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,19 +38,43 @@ class Tracks extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return <h1>List loading...</h1>;
+    }
+
+    const { items } = this.props;
+    /* <TrackRowList items={new Array(12).fill({})} /> */
+
     return (
       <section className="Tracks">
-        <h1 className="Tracks-title">This is the Tracks page</h1>
+        <TrackRowList items={items} />
       </section>
     );
   }
 }
 
 Tracks.propTypes = {
+  query: string.isRequired,
+  items: arrayOf(object),
+  searchTracks: func.isRequired,
+
   location: shape({
     pathname: string,
     search: string,
   }).isRequired,
 };
 
-export default Tracks;
+Tracks.defaultProps = {
+  items: [],
+};
+
+function mapStateToProps(state) {
+  const ids = state.search.tracks;
+
+  return {
+    query: state.search.query,
+    items: ids.map(id => state.tracks.entities[id]),
+  };
+}
+
+export default connect(mapStateToProps, search.actions)(Tracks);
