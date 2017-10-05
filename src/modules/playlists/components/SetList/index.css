@@ -1,0 +1,8 @@
+.SetList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.SetList > .SetCard {
+  width: calc((100% / 4) - 1em);
+}

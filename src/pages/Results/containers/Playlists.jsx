@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { shape, string } from 'prop-types';
 
+import SetList from './../../../modules/playlists/components/SetList';
+
 class Playlists extends Component {
   state = {
     dummie: 'yey',
@@ -20,7 +22,7 @@ class Playlists extends Component {
   render() {
     return (
       <section className="Playlists">
-        <h1 className="Playlists-title">This is the Playlists page</h1>
+        <SetList items={new Array(12).fill({})} />
       </section>
     );
   }
