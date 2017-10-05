@@ -5,7 +5,10 @@ import { INITIAL_STATE } from './model';
 
 function queryReducer(state = INITIAL_STATE.query, action) {
   if (action.type === actionTypes.SET_QUERY) {
-    return action.payload;
+    return {
+      current: action.payload,
+      prev: state.current,
+    };
   }
 
   return state;
@@ -13,7 +16,8 @@ function queryReducer(state = INITIAL_STATE.query, action) {
 
 function tracksReducer(state = INITIAL_STATE.tracks, action) {
   if (action.type === actionTypes.SET_TRACKS) {
-    return [...state, ...action.payload];
+    // UPDATE THIS
+    return action.payload;
   }
 
   return state;

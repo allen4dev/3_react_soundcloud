@@ -10,16 +10,25 @@ test('@@INIT', () => {
 describe('reducer', () => {
   it('should handle SET_QUERY', () => {
     const query = 'an awesome track, playlist or user';
+    const nextState = reducer(INITIAL_STATE, actions.setQuery(query));
 
-    const nextState = reducer(INITIAL_STATE.query, actions.setQuery(query));
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      query: {
+        current: query,
+        prev: '',
+      },
+    });
 
-    expect(nextState).toEqual({ ...INITIAL_STATE, query });
+    const newQuery = 'this is a more awesome search';
+    const newState = reducer(nextState, actions.setQuery(newQuery));
 
-    const nextQuery = 'another awesome track, playlist or user';
-
-    expect(reducer(nextState, actions.setQuery(nextQuery))).toEqual({
+    expect(newState).toEqual({
       ...nextState,
-      query: nextQuery,
+      query: {
+        current: newQuery,
+        prev: query,
+      },
     });
   });
 

@@ -1,14 +1,20 @@
 // @flow
 
 type STATE = {
-  query: string,
+  query: {
+    current: '',
+    prev: '',
+  },
   tracks: Array<string>,
   playlists: Array<string>,
   users: Array<string>,
 };
 
 export const INITIAL_STATE: STATE = {
-  query: '',
+  query: {
+    current: '',
+    prev: '',
+  },
   tracks: [],
   playlists: [],
   users: [],

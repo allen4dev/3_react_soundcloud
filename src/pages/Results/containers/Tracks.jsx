@@ -17,13 +17,14 @@ class Tracks extends Component {
     const { items, query, searchTracks, location } = this.props;
     console.log('TRACKS LOCATION CDM', location);
 
-    if (items.length === 0 || query !== utils.cleanSearch(location.search)) {
+    if (
+      items.length === 0 ||
+      query.prev !== utils.cleanSearch(location.search)
+    ) {
       console.log('FETCHING NEW RESULTS');
-      console.log(
-        `QUERY STORE: ${query}, SEARCH: ${utils.cleanSearch(location.search)}`
-      );
+
       this.setState({ loading: true }, async () => {
-        await searchTracks(query);
+        await searchTracks(query.current);
       });
     }
 
