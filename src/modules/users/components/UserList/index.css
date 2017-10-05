@@ -1,0 +1,8 @@
+.UserList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.UserList > .UserCard {
+  width: calc((100% / 4) - 1em);
+}

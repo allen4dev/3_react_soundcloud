@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { shape, string } from 'prop-types';
 
+import UserList from './../../../modules/users/components/UserList';
+
 class Users extends Component {
   state = {
     dummie: 'yey',
@@ -20,7 +22,7 @@ class Users extends Component {
   render() {
     return (
       <section className="Users">
-        <h1 className="Users-title">This is the Users page</h1>
+        <UserList items={new Array(12).fill({})} />
       </section>
     );
   }

@@ -6,7 +6,7 @@ import Image from './../../../../shared/Image';
 
 import './index.css';
 
-import defaultImage from './../images/default_image.png';
+import defaultImage from './../../../images/default_image.png';
 
 const TrackCard = props => {
   const src = props.artwork_url || defaultImage;

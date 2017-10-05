@@ -1,0 +1,20 @@
+.UserCard {
+  margin: var(--small);
+  text-align: center;
+  /*padding: .5em;*/
+}
+
+.UserCard-link {
+  text-decoration: none;
+  color: var(--dark-light);
+}
+
+.UserCard-image {
+  border-radius: 50%;
+  margin-bottom: var(--small);
+  overflow: hidden;
+}
+
+.UserCard-username {
+  font-size: var(--font-medium);
+}

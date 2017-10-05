@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Image from './../../../../shared/Image';
 
-import defaultImage from './../images/default_image.png';
+import defaultImage from './../../../images/default_image.png';
 
 import './index.css';
 
