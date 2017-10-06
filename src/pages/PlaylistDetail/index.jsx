@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import SC from './../../helpers/soundcloud';
+
+import Set from './../../modules/playlists/components/Set';
 
 import './index.css';
 
-const PlaylistDetail = () => (
-  <section className="PlaylistDetail">
-    <h1 className="PlaylistDetail-title">You are in PlaylistDetail page</h1>
-  </section>
-);
+class PlaylistDetail extends Component {
+  state = {
+    dummie: 'yey',
+  };
+
+  componentDidMount() {
+    SC.oEmbed('https://api.soundcloud.com/playlists/227731770', {
+      element: document.getElementById('playlist-widget'),
+    });
+  }
+
+  render() {
+    return (
+      <section className="PlaylistDetail">
+        <div id="playlist-widget" />
+      </section>
+    );
+  }
+}
 
 export default PlaylistDetail;
