@@ -37,4 +37,24 @@ describe('Action creators', () => {
 
     expect(actions.setPlaylistTracks(id, trackIds)).toEqual(expectedAction);
   });
+
+  it('should create an action to add a multiple list of playlist tracks', () => {
+    const id1 = 123;
+    const id2 = 456;
+
+    const id1Tracks = ['track1', 'track2'];
+    const id2Tracks = ['track3', 'track4'];
+
+    const payload = {
+      [id1]: id1Tracks,
+      [id2]: id2Tracks,
+    };
+
+    const expectedAction = {
+      type: actionTypes.SET_PLAYLISTS_TRACKS,
+      payload,
+    };
+
+    expect(actions.setPlaylistsTracks(payload)).toEqual(expectedAction);
+  });
 });

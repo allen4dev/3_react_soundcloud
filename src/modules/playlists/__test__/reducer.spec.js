@@ -89,4 +89,48 @@ describe('tracks reducer', () => {
       },
     });
   });
+
+  it('should handle SET_PLAYLISTS_TRACKS', () => {
+    const id1 = 123;
+    const id2 = 456;
+
+    const id1Tracks = ['track1', 'track2'];
+    const id2Tracks = ['track3', 'track4'];
+
+    const payload = {
+      [id1]: id1Tracks,
+      [id2]: id2Tracks,
+    };
+
+    const nextState = reducer(
+      INITIAL_STATE,
+      actions.setPlaylistsTracks(payload),
+    );
+
+    expect(nextState).toEqual({
+      ...INITIAL_STATE,
+      tracks: payload,
+    });
+
+    const id3 = 789;
+    const id4 = 852;
+
+    const id3Tracks = ['track5', 'track6'];
+    const id4Tracks = ['track7', 'track8'];
+
+    const newPayload = {
+      [id3]: id3Tracks,
+      [id4]: id4Tracks,
+    };
+
+    const newState = reducer(nextState, actions.setPlaylistsTracks(newPayload));
+
+    expect(newState).toEqual({
+      ...nextState,
+      tracks: {
+        ...payload,
+        ...newPayload,
+      },
+    });
+  });
 });

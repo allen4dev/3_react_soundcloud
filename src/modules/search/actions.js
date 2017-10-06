@@ -63,9 +63,32 @@ export function searchPlaylists(query, limit = 10) {
     const resolved = await Promise.all(completePlaylists);
     const filtered = resolved.map(utils.filterPlaylist);
 
+    const trackIds = filtered.reduce((obj, playlist) => {
+      const ids = playlist.tracks.map(track => track.id);
+      return {
+        ...obj,
+        [playlist.id]: ids,
+      };
+    }, {});
+    // const playlistTracks = filtered.map(playlist => playlist.tracks);
+
+    const playlistTracks = filtered.reduce(
+      (arr, playlist) => [...arr, ...playlist.tracks],
+      [],
+    );
+
+    const tracksObj = playlistTracks.reduce(
+      (obj, track) => ({
+        ...obj,
+        [track.id]: track,
+      }),
+      {},
+    );
     const results = utils.arrayToObject(filtered);
 
     dispatch(playlists.actions.setPlaylists(results));
+    dispatch(tracks.actions.setTracks(tracksObj));
+    dispatch(playlists.actions.setPlaylistsTracks(trackIds));
     dispatch(setPlaylists(Object.keys(results)));
 
     return results;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 import Image from './../../../../shared/Image';
 
@@ -6,8 +7,8 @@ import defaultImage from './../../../images/default_image.png';
 
 import './index.css';
 
-const Track = () => {
-  const src = defaultImage;
+const Track = props => {
+  const src = props.artwork_url || defaultImage;
   return (
     <section className="Track">
       <div className="Track-description">
@@ -16,7 +17,7 @@ const Track = () => {
         </div>
         <div className="Track-title">
           <span className="Track-playlist">fripSide</span> -{' '}
-          <span className="Track-title">Way to answer</span>
+          <span className="Track-title truncate">{props.title}</span>
         </div>
       </div>
       <div className="Track-actions">
@@ -28,4 +29,10 @@ const Track = () => {
     </section>
   );
 };
+
+Track.propTypes = {
+  artwork_url: string.isRequired,
+  title: string.isRequired,
+};
+
 export default Track;

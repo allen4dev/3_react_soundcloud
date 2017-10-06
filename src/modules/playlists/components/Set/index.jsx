@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, number, string } from 'prop-types';
 
 import Image from './../../../../shared/Image';
 
@@ -6,8 +7,9 @@ import defaultImage from './../../../images/default_image.png';
 
 import './index.css';
 
-const Set = () => {
-  const src = defaultImage;
+const Set = ({ user, playlist, playlistCount }) => {
+  const src =
+    playlist.tracks[0].artwork_url.replace('-large', '-crop') || defaultImage;
 
   return (
     <div className="Set">
@@ -17,13 +19,19 @@ const Set = () => {
             <i className="icon-play3" />
           </button>
           <div className="Set-description">
-            <span className="Set-username emphasize">allen4dev</span>
-            <span className="Set-title emphasize">fripSide</span>
+            <span className="Set-username emphasize">
+              {user.username}
+            </span>
+            <span className="Set-title emphasize">
+              {playlist.title}
+            </span>
           </div>
         </div>
 
         <div className="Set-count">
-          <span className="Set-tracksCount">72</span>
+          <span className="Set-tracksCount">
+            {playlistCount}
+          </span>
           <span className="Set-text">pistas</span>
           <span className="Set-totalTime">6:00:46</span>
         </div>
@@ -33,6 +41,22 @@ const Set = () => {
       </div>
     </div>
   );
+};
+
+Set.propTypes = {
+  playlist: shape({
+    artwork_url: string,
+    title: string,
+  }).isRequired,
+  user: shape({
+    username: string,
+  }).isRequired,
+
+  playlistCount: number,
+};
+
+Set.defaultProps = {
+  playlistCount: 0,
 };
 
 export default Set;

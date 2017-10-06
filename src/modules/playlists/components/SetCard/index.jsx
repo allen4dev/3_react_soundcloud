@@ -12,7 +12,7 @@ const SetCard = props => {
   const src = props.artwork_url || defaultImage;
   return (
     <section className="SetCard">
-      <Link to="/playlist/123" className="SetCard-image SetCard-link">
+      <Link to={`/playlist/${props.id}`} className="SetCard-image SetCard-link">
         <Image src={src} description={props.title} />
         <span className="SetCard-count">
           {props.tracks.length} pistas

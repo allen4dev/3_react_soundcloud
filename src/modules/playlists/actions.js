@@ -26,6 +26,13 @@ export function setPlaylistTracks(id, trackIds) {
   };
 }
 
+export function setPlaylistsTracks(payload) {
+  return {
+    type: actionTypes.SET_PLAYLISTS_TRACKS,
+    payload,
+  };
+}
+
 export function setNextTracks(id, trackIds) {
   return {
     type: actionTypes.SET_NEXT_TRACKS,

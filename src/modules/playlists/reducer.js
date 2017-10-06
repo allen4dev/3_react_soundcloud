@@ -38,6 +38,12 @@ function tracksReducer(state = INITIAL_STATE.tracks, action) {
           ...action.payload.trackIds,
         ],
       };
+
+    case actionTypes.SET_PLAYLISTS_TRACKS:
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
