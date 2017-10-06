@@ -26,6 +26,13 @@
   border: none;
   color: var(--dark);
   font-size: var(--font-small);
+  box-shadow: none;
+}
+
+.btn-play {
+  border-radius: 50%;
+  font-size: var(--font-large);
+  padding: var(--small);
 }
 
 .truncate {
@@ -34,6 +41,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   /* text-align: center; */
+}
+
+.emphasize {
+  background-color: var(--dark);
+  padding: .2em var(--small);
+  color: white;
 }
 
 .tag {

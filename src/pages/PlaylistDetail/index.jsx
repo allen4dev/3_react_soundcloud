@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import SC from './../../helpers/soundcloud';
 
 import Set from './../../modules/playlists/components/Set';
+import User from './../../modules/users/components/User';
+import TrackList from './../../modules/tracks/components/TrackList';
+
+import ActionButtons from './../../shared/ActionButtons';
 
 import './index.css';
 
@@ -10,16 +13,17 @@ class PlaylistDetail extends Component {
     dummie: 'yey',
   };
 
-  componentDidMount() {
-    SC.oEmbed('https://api.soundcloud.com/playlists/227731770', {
-      element: document.getElementById('playlist-widget'),
-    });
-  }
-
   render() {
     return (
       <section className="PlaylistDetail">
-        <div id="playlist-widget" />
+        <Set />
+        <div className="PlaylistDetail-content">
+          <ActionButtons />
+          <div className="PlaylistDetail-contentBody">
+            <User />
+            <TrackList items={new Array(12).fill({})} />
+          </div>
+        </div>
       </section>
     );
   }

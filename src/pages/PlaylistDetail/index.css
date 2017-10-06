@@ -1,3 +1,21 @@
 .PlaylistDetail {
   margin-top: var(--header-size);
 }
+
+.PlaylistDetail-content {
+  padding: var(--medium) var(--container);
+}
+
+.PlaylistDetail-contentBody {
+  display: flex;
+  margin: var(--big) 0;
+}
+
+.PlaylistDetail .User {
+  flex-basis: 20%;
+  margin-right: var(--big);
+}
+
+.PlaylistDetail .TrackList {
+  flex: 1;
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import Image from './../../../../shared/Image';
 
 import defaultImage from './../../../images/default_image.png';
+
 import './index.css';
 
 const Set = () => {
@@ -12,9 +13,13 @@ const Set = () => {
     <div className="Set">
       <div className="Set-info">
         <div className="Set-heading">
-          <button className="Set-play btn">
+          <button className="Set-button btn btn-play">
             <i className="icon-play3" />
           </button>
+          <div className="Set-description">
+            <span className="Set-username emphasize">allen4dev</span>
+            <span className="Set-title emphasize">fripSide</span>
+          </div>
         </div>
 
         <div className="Set-count">

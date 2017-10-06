@@ -1,0 +1,66 @@
+.Set {
+  background: linear-gradient(
+    to bottom left,
+    var(--gradient-dark) 50%,
+    var(--gradient-light) 100%
+  );
+  padding: var(--medium);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Set-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Set-heading {
+  display: flex;
+  align-items: center;
+}
+
+.Set-button {
+  margin-right: var(--medium);
+}
+
+.Set-description {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.Set-username {
+  margin-bottom: var(--small);
+}
+
+.Set-count {
+  background-color: var(--dark);
+  color: var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--medium) var(--big);
+  text-align: center;
+  align-items: center;
+  font-size: var(--font-small);
+}
+
+.Set-tracksCount {
+  font-size: var(--font-big);
+  font-weight: bold;
+}
+
+.Set-text {
+  color: var(--light-gray);
+  font-weight: bold;
+  margin: var(--small) 0;
+}
+
+.Set-image {
+  flex-basis: 25%;
+  min-width: 10em;
+  min-height: 10em;
+}

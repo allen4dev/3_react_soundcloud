@@ -1,0 +1,37 @@
+.Track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Track:not(:last-of-type) {
+  margin-bottom: var(--medium);
+}
+
+.Track-description {
+  display: flex;
+  align-items: center;
+  flex: 9;
+}
+
+.Track-actions {
+  flex: 1;
+  text-align: right;
+}
+
+.Track-image {
+  flex-basis: 5%;
+  min-width: 50px;
+  min-height: 50px;
+  margin-right: var(--big);
+}
+
+.Track-playlist,
+.Track-actions,
+.Track-button {
+  color: var(--gray);
+}
+
+.Track-button {
+  font-size: var(--medium);
+}
