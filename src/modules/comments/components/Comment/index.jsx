@@ -1,5 +1,6 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { shape, number, string } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Image from './../../../../shared/Image';
 
@@ -12,16 +13,16 @@ const Comment = props => {
 
   return (
     <div className="Comment">
-      <div className="Comment-avatar">
-        <Image src={src} description="allen4dev" />
-      </div>
+      <Link to={`/user/${props.user.id}`} className="Comment-avatar">
+        <Image src={src} description={props.user.username} />
+      </Link>
 
       <div className="Comment-info">
         <div className="Comment-heading">
-          <span className="Comment-username">allen4dev</span>
-          <span className="Comment-date">9 minutos</span>
+          <span className="Comment-username">{props.user.username}</span>
+          <span className="Comment-date">{props.timestamp}</span>
         </div>
-        <p className="Comment-body">Some comment about the track</p>
+        <p className="Comment-body">{props.body}</p>
       </div>
     </div>
   );
@@ -29,6 +30,12 @@ const Comment = props => {
 
 Comment.propTypes = {
   avatar_url: string.isRequired,
+  user: shape({
+    id: number,
+    username: string,
+  }).isRequired,
+  body: string.isRequired,
+  timestamp: number.isRequired,
 };
 
 export default Comment;

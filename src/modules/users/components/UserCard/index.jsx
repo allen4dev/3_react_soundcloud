@@ -14,13 +14,11 @@ const UserCard = props => {
     <div className="UserCard">
       <Link className="UserCard-link" to="/user/123">
         <div className="UserCard-image">
-          <Image src={src} />
+          <Image src={src} description={props.username} />
         </div>
 
         <div className="UserCard-description">
-          <span className="UserCard-username">
-            {props.username}
-          </span>
+          <span className="UserCard-username">{props.username}</span>
         </div>
       </Link>
     </div>

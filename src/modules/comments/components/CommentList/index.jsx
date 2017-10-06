@@ -9,7 +9,7 @@ const CommentList = ({ items }) => (
   <div className="CommentList">
     <div className="CommentList-title">
       <span className="CommentList-icon icon-mail-forward" />
-      3582 comentarios
+      {items.length} comentarios
     </div>
     {items.map(comment => <Comment key={comment.id} {...comment} />)}
   </div>
