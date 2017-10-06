@@ -1,0 +1,30 @@
+.Comment {
+  display: flex;
+  align-items: center;
+}
+
+.Comment:not(:last-child) {
+  margin-bottom: var(--big);
+}
+
+.Comment-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: var(--medium);
+}
+
+.Comment-info {
+  flex: 1;
+}
+
+.Comment-heading {
+  margin-bottom: var(--small);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Comment-username {
+  color: var(--gray);
+}

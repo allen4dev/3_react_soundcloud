@@ -1,0 +1,27 @@
+.CommentBar {
+}
+.CommentBar-heading {
+  background-color: var(--light-gray);
+  display: flex;
+  align-items: center;
+}
+
+.CommentBar-avatar {
+  flex-basis: 5%;
+  max-width: 75px;
+  max-height: 75px;
+  min-width: 50px;
+  min-height: 50px;
+  /* margin-right: var(--medium); */
+}
+
+.CommentBar-form {
+  flex: 1;
+  margin: 0 var(--small);
+}
+
+.CommentBar-input {
+  font-size: var(--font-normal);
+  padding: var(--small);
+  width: 100%;
+}

@@ -1,0 +1,11 @@
+.ActionButtons {
+  padding: var(--small) 0;
+}
+
+.ActionButtons-icon {
+  margin-right: var(--small);
+}
+
+.ActionButtons-button:not(:last-child) {
+  margin-right: var(--medium);
+}

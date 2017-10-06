@@ -21,6 +21,13 @@
   color: var(--dark);
 }
 
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  color: var(--dark);
+  font-size: var(--font-small);
+}
+
 .truncate {
   width: 100%;
   white-space: nowrap;

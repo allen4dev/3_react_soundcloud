@@ -1,0 +1,13 @@
+.CommentList {
+  margin: var(--container) 0;
+  height: calc(100vh - 10em);
+  overflow-y: scroll;
+}
+
+.CommentList-title {
+  margin-bottom: var(--big);
+}
+
+.CommentList-icon {
+  margin-right: var(--small);
+}

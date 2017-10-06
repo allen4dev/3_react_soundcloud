@@ -1,0 +1,12 @@
+.User-info {
+  text-align: center;
+}
+
+.User-count {
+  padding-top: var(--small);
+  padding-bottom: var(--medium);
+}
+
+.User-followers {
+  margin-right: var(--big);
+}
