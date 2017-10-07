@@ -21,6 +21,20 @@ export function setTracks(trackIds) {
   };
 }
 
+export function setNextTracks(trackIds) {
+  return {
+    type: actionTypes.SET_NEXT_TRACKS,
+    payload: trackIds,
+  };
+}
+
+export function setTracksNextPage(nextPage) {
+  return {
+    type: actionTypes.SET_TRACKS_NEXT_PAGE,
+    payload: nextPage,
+  };
+}
+
 export function setPlaylists(playlistIds) {
   return {
     type: actionTypes.SET_PLAYLISTS,
@@ -28,10 +42,38 @@ export function setPlaylists(playlistIds) {
   };
 }
 
+export function setNextPlaylists(playlistIds) {
+  return {
+    type: actionTypes.SET_NEXT_PLAYLISTS,
+    payload: playlistIds,
+  };
+}
+
+export function setPlaylistsNextPage(nextPage) {
+  return {
+    type: actionTypes.SET_PLAYLISTS_NEXT_PAGE,
+    payload: nextPage,
+  };
+}
+
 export function setUsers(usersIds) {
   return {
     type: actionTypes.SET_USERS,
     payload: usersIds,
+  };
+}
+
+export function setNextUsers(usersIds) {
+  return {
+    type: actionTypes.SET_NEXT_USERS,
+    payload: usersIds,
+  };
+}
+
+export function setUsersNextPage(nextPage) {
+  return {
+    type: actionTypes.SET_USERS_NEXT_PAGE,
+    payload: nextPage,
   };
 }
 
@@ -57,7 +99,7 @@ export function searchPlaylists(query, limit = 10) {
     const response = await SC.get('/playlists', { q: query, limit });
 
     const completePlaylists = response.map(playlist =>
-      SC.get(`/playlists/${playlist.id}`),
+      SC.get(`/playlists/${playlist.id}`)
     );
 
     const resolved = await Promise.all(completePlaylists);
@@ -74,7 +116,7 @@ export function searchPlaylists(query, limit = 10) {
 
     const playlistTracks = filtered.reduce(
       (arr, playlist) => [...arr, ...playlist.tracks],
-      [],
+      []
     );
 
     const tracksObj = playlistTracks.reduce(
@@ -82,7 +124,7 @@ export function searchPlaylists(query, limit = 10) {
         ...obj,
         [track.id]: track,
       }),
-      {},
+      {}
     );
     const results = utils.arrayToObject(filtered);
 
