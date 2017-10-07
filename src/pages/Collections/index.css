@@ -1,0 +1,24 @@
+.Collections {
+  margin-top: var(--header-size);
+}
+
+.Collections-menu {
+  padding: var(--container) 0;
+  display: flex;
+}
+
+.Collections-content {
+  padding: 0 var(--container);
+}
+
+.Collections-link {
+  color: var(--dark);
+  font-size: var(--font-big);
+  margin: 0 var(--container);
+  text-decoration: none;
+}
+
+.Collections-link-active {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+}

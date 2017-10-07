@@ -19,15 +19,15 @@
   --font-logo: 3rem;
 
   /* space */
-  --small: 0.5em;
-  --medium: 1em;
-  --big: 1.5em;
-  --container: 2em;
+  --small: 0.5rem;
+  --medium: 1rem;
+  --big: 1.5rem;
+  --container: 2rem;
 
   /* sizes */
-  --header-size: 4em;
-  --footer-size: 5em;
-  --banner-size: 20em;
+  --header-size: 4rem;
+  --footer-size: 5rem;
+  --banner-size: 20rem;
 
   /* z-index */
   --z-header: 1000;

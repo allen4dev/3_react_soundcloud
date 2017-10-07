@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Results from './pages/Results';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
-import Collection from './pages/Collection';
+import Collections from './pages/Collections';
 import UserDetail from './pages/UserDetail';
 import PlaylistDetail from './pages/PlaylistDetail';
 import TrackDetail from './pages/TrackDetail';
@@ -32,7 +32,7 @@ function App() {
           <Route path="/results/:resource" component={Results} />
           <Route path="/signup" component={Signup} />
           <Route path="/me" component={Profile} />
-          <Route path="/collections" component={Collection} />
+          <Route path="/collections" component={Collections} />
           <Route path="/user/:id" component={UserDetail} />
           <Route path="/playlist/:id" component={PlaylistDetail} />
           <Route path="/track/:id" component={TrackDetail} />
@@ -50,7 +50,7 @@ function App() {
   <Route path="/results" component={Results} />
   <PublicRoute path="/signup" component={Signup} />
   <PrivateRoute path="/me" component={Profile} />
-  <PrivateRoute path="/collections" component={Collection} />
+  <PrivateRoute path="/collectionss" component={Collections} />
   <Route path="/user/:id" component={UserDetail} />
   <Route path="/playlist/:id" component={PlaylistDetail} />
   <Route path="/track/:id" component={TrackDetail} />
