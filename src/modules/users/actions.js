@@ -10,6 +10,13 @@ import followers from './../followers';
 import followings from './../followings';
 
 // Action creators
+export function setCurrentUser(id) {
+  return {
+    type: actionTypes.SET_CURRENT_USER,
+    payload: id,
+  };
+}
+
 export function setUser(user) {
   return {
     type: actionTypes.SET_USER,
@@ -77,9 +84,9 @@ export function fetchUser(id) {
   };
 }
 
-export function fetchUserTracks(id) {
+export function fetchUserTracks(id, limit = 12) {
   return async dispatch => {
-    const response = await SC.get(`/users/${id}/tracks`);
+    const response = await SC.get(`/users/${id}/tracks`, { limit });
     const results = utils.arrayToObject(response);
 
     dispatch(tracks.actions.setTracks(results));
@@ -89,10 +96,11 @@ export function fetchUserTracks(id) {
   };
 }
 
-export function fetchFavoritedTracks(id) {
+export function fetchFavoritedTracks(id, limit = 12) {
   return async dispatch => {
-    const response = await SC.get(`/users/${id}/favorites`);
-    const results = utils.arrayToObject(response);
+    const response = await SC.get(`/users/${id}/favorites`, { limit });
+    const filtered = response.map(utils.filterTrack);
+    const results = utils.arrayToObject(filtered);
 
     dispatch(tracks.actions.setTracks(results));
     dispatch(setFavoritedTracks(id, Object.keys(results)));
@@ -101,10 +109,11 @@ export function fetchFavoritedTracks(id) {
   };
 }
 
-export function fetchUserPlaylists(id) {
+export function fetchUserPlaylists(id, limit = 12) {
   return async dispatch => {
-    const response = await SC.get(`/users/${id}/playlists`);
-    const results = utils.arrayToObject(response);
+    const response = await SC.get(`/users/${id}/playlists`, { limit });
+    const filtered = response.map(utils.filterPlaylist);
+    const results = utils.arrayToObject(filtered);
 
     dispatch(playlists.actions.setPlaylists(results));
     dispatch(setUserPlaylists(id, Object.keys(results)));
@@ -113,10 +122,11 @@ export function fetchUserPlaylists(id) {
   };
 }
 
-export function fetchUserFollowers(id) {
+export function fetchUserFollowers(id, limit = 12) {
   return async dispatch => {
-    const response = await SC.get(`/users/${id}/followers`);
-    const results = utils.arrayToObject(response.collection);
+    const response = await SC.get(`/users/${id}/followers`, { limit });
+    const filtered = response.collection.map(utils.filterUser);
+    const results = utils.arrayToObject(filtered);
     dispatch(setUsers(results));
     dispatch(followers.actions.setFollowers(id, Object.keys(results)));
 
@@ -124,10 +134,11 @@ export function fetchUserFollowers(id) {
   };
 }
 
-export function fetchUserFollowings(id) {
+export function fetchUserFollowings(id, limit = 12) {
   return async dispatch => {
-    const response = await SC.get(`/users/${id}/followings`);
-    const results = utils.arrayToObject(response.collection);
+    const response = await SC.get(`/users/${id}/followings`, { limit });
+    const filtered = response.collection.map(utils.filterUser);
+    const results = utils.arrayToObject(filtered);
 
     dispatch(setUsers(results));
     dispatch(followings.actions.setFollowings(id, Object.keys(results)));

@@ -3,6 +3,14 @@ import { combineReducers } from 'redux';
 import * as actionTypes from './actionTypes';
 import { INITIAL_STATE } from './model';
 
+function currentUserReducer(state = INITIAL_STATE.currentUser, action) {
+  if (action.type === actionTypes.SET_CURRENT_USER) {
+    return action.payload;
+  }
+
+  return state;
+}
+
 function entitiesReducer(state = INITIAL_STATE.entities, action) {
   switch (action.type) {
     case actionTypes.SET_USER:
@@ -89,6 +97,7 @@ function playlistsReducer(state = INITIAL_STATE.playlists, action) {
 }
 
 const reducer = combineReducers({
+  currentUser: currentUserReducer,
   entities: entitiesReducer,
   tracks: tracksReducer,
   favorited: favoritedReducer,
